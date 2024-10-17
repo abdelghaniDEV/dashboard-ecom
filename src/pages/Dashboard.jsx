@@ -28,7 +28,7 @@ function Dashboard() {
         <div className="bg-custom-gradient flex  rounded-[20px] justify-between p-5">
           <div className="flex flex-col gap-2">
             <div>
-              <h1 className="text-[30px] font-[500] leading-[35px]">
+              <h1 className="text-[25px] md:text-[30px] font-[500] leading-[35px]">
                 Here happening in your
                 <br />
                 sales last weeks

@@ -27,24 +27,6 @@ import { Switch } from "@/components/ui/switch";
 import { TrendingUp } from "lucide-react";
 import { useSelector } from "react-redux";
 
-// const ChartConfig = {
-//   Orders: {
-//     label: "Orders",
-//     // color: "#2563eb",
-//     color: "#f2b78d",
-//   },
-//   Revenue: {
-//     label: "Revenue",
-//     //
-//     color: "#a98563",
-//   },
-//   Products: {
-//     label: "Products",
-//     //
-//     color: "#76a963",
-//   },
-// };
-
 const FackData = [
   { month: "January", Orders: 123, Revenue: 355.77, Products: 120 },
   { month: "February", Orders: 456, Revenue: 234.89, Products: 229 },
@@ -168,11 +150,12 @@ function Barchart() {
               </SelectContent>
             </Select>
           </CardTitle>
-          <div className="custom-gradient grid grid-cols-2 lg:grid-cols-3 gap-3  ">
-            <div className="flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-[#76a963] text-white">
+          <div className="custom-gradient grid grid-cols-1 lg:grid-cols-3 gap-3  ">
+            <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-box-total-products  text-white">
               <h3 className="text-[14px]">Total Products</h3>
               <div className="flex gap-[7px]">
                 <i class="bx bx-category-alt text-[20px]"></i>
+                <i class="bx bx-category-alt md:text-[20px] text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D]"></i>
                 <h1 className="text-[30px] font-[600]">{totalProducts}</h1>
               </div>
               <div className="flex items-center">
@@ -183,10 +166,11 @@ function Barchart() {
                 </h3>
               </div>
             </div>
-            <div className="flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-[#a98563]">
+            <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-box-total-revenue">
               <h3 className="text-[14px]">Revenue</h3>
               <div className="flex gap-[7px]">
                 <span className="text-[20px]">$</span>
+                <span className="text-[180px] absolute top-[-40px] right-0 text-[#A98563]">$</span>
                 <h1 className="text-[30px] font-[600]">{totalRevenue}</h1>
               </div>
               <div className="flex items-center">
@@ -197,10 +181,11 @@ function Barchart() {
                 </h3>
               </div>
             </div>
-            <div className="flex flex-col gap-1 border-[2px] rounded-[20px] p-4 shadow-md bg-[#f2b78d]">
+            <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4 shadow-md md:bg-[#f2b78d] bg-box-total-orders">
               <h3 className="text-[14px]">Total Orders</h3>
               <div className="flex gap-[7px]">
                 <i class="bx bx-shopping-bag text-[20px]"></i>
+                <i class="bx bx-shopping-bag text-[150px] absolute top-3 right-[-40px] text-[#F2B78D]"></i>
                 <h1 className="text-[30px] font-[600]">{totalOrders}</h1>
               </div>
               <div className="flex items-center">
