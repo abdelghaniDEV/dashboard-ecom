@@ -119,9 +119,9 @@ function Barchart() {
 
   return (
     <div className="">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex justify-between">
+      <div className="">
+        <CardHeader className='p-1'>
+          <CardTitle className="flex justify-between pb-3">
             <div className="flex items-center space-x-2">
               <Switch
                 checked={isChecked}
@@ -219,7 +219,7 @@ function Barchart() {
             </BarChart>
           </ChartContainer>
         </CardContent>
-      </Card>
+      </div>
     </div>
   );
 }
