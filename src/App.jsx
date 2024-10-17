@@ -61,7 +61,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Routes>
+      <Routes basename="/dashboard-ecome">
         <Route path="/login" element={<Login />} />
        
         <Route
