@@ -155,7 +155,7 @@ function Barchart() {
               <h3 className="text-[14px]">Total Products</h3>
               <div className="flex gap-[7px]">
                 <i class="bx bx-category-alt text-[20px]"></i>
-                <i class="bx bx-category-alt md:text-[20px] text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D]"></i>
+                <i class="bx bx-category-alt text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D] lg:hidden"></i>
                 <h1 className="text-[30px] font-[600]">{totalProducts}</h1>
               </div>
               <div className="flex items-center">
@@ -170,7 +170,7 @@ function Barchart() {
               <h3 className="text-[14px]">Revenue</h3>
               <div className="flex gap-[7px]">
                 <span className="text-[20px]">$</span>
-                <span className="text-[180px] absolute top-[-40px] right-0 text-[#A98563]">$</span>
+                <span className="text-[180px] absolute top-[-40px] right-0 text-[#A98563] lg:hidden">$</span>
                 <h1 className="text-[30px] font-[600]">{totalRevenue}</h1>
               </div>
               <div className="flex items-center">
@@ -185,7 +185,7 @@ function Barchart() {
               <h3 className="text-[14px]">Total Orders</h3>
               <div className="flex gap-[7px]">
                 <i class="bx bx-shopping-bag text-[20px]"></i>
-                <i class="bx bx-shopping-bag text-[150px] absolute top-3 right-[-40px] text-[#F2B78D]"></i>
+                <i class="bx bx-shopping-bag text-[150px] absolute top-3 right-[-40px] text-[#F2B78D] lg:hidden"></i>
                 <h1 className="text-[30px] font-[600]">{totalOrders}</h1>
               </div>
               <div className="flex items-center">

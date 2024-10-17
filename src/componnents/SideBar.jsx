@@ -37,34 +37,39 @@ function SideBar({setShowSidebar , showSidebar}) {
             GENERAL
           </span>
           <div className="mt-2 mx-6">
-            <ul className="text-[15px] text-[#8AA1A3] flex flex-col gap-4">
+            <ul className="md:text-[15px] text-[18px] text-[#8AA1A3] flex flex-col gap-4">
               <Link
                 to={"/dashboard"}
                 className="flex items-center gap-2 rounded-[8px] p-2 "
+                onClick={() => setShowSidebar(false)}
               >
                 <i className="bx bxs-dashboard text-[20px]"></i>Dashboard
               </Link>
               <Link
                 to={"/dashboard/orders"}
                 className="flex items-center gap-2 rounded-[8px] p-2 "
+                onClick={() => setShowSidebar(false)}
               >
                 <i className="bx bx-basket text-[20px]"></i>Orders
               </Link>
               <Link
                 to={"/dashboard/products"}
                 className="flex items-center gap-2 rounded-[8px] p-2 "
+                onClick={() => setShowSidebar(false)}
               >
                 <i className="bx bx-cube text-[20px]"></i>Products
               </Link>
               <Link
                 to={"/dashboard/categories"}
                 className="flex items-center gap-2 rounded-[8px] p-2 "
+                onClick={() => setShowSidebar(false)}
               >
                 <i className="bx bx-category-alt text-[20px]"></i>Categories
               </Link>
               <Link
                 to={"/dashboard/customers"}
                 className="flex items-center gap-2 rounded-[8px] p-2 "
+                onClick={() => setShowSidebar(false)}
               >
                 <i className="bx bx-user-pin text-[20px]"></i>Customers
               </Link>

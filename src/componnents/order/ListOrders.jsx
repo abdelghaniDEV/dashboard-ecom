@@ -86,7 +86,7 @@ function ListOrders({ orders }) {
             <TableHead>Custemer</TableHead>
             <TableHead className="hidden sm:table-cell">Email</TableHead>
             <TableHead>Total</TableHead>
-            <TableHead className="hidden md:table-cell ">Items</TableHead>
+            <TableHead className="hidden xl:table-cell ">Items</TableHead>
             <TableHead className="hidden sm:table-cell">Date</TableHead>
             <TableHead className=" ">Action</TableHead>
           </TableRow>
