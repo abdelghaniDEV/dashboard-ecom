@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -13,50 +12,47 @@ import {
 import { useSelector } from "react-redux";
 import { Button } from "../../components/ui/button";
 import axios from "axios";
-import spinner from "../../assets/tube-spinner (1).svg"
+import spinner from "../../assets/tube-spinner (1).svg";
 import { ToastContainer, toast } from "react-toastify";
 
 function EditOrder() {
- 
-
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [productsSelector, setProductsSelector] = useState([]);
   const [productSelector, setProductSelector] = useState();
   const [totalPrice, setTotalPrice] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [adress , setAddress] = useState("")
-  const [ZipCode , setZipCode] = useState("")
-  const [statusSubmit, setStatusSubmit] = useState('edit');
+  const [adress, setAddress] = useState("");
+  const [ZipCode, setZipCode] = useState("");
+  const [statusSubmit, setStatusSubmit] = useState("edit");
 
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
 
   const products = useSelector((statu) => statu.products);
   const orders = useSelector((statu) => statu.orders);
 
-    // toast notification
-    const notify = (type, message) => {
-      if (type === "success") {
-        toast.success(message);
-      } else {
-        toast.error(message);
-      }
-    };
-  
+  // toast notification
+  const notify = (type, message) => {
+    if (type === "success") {
+      toast.success(message);
+    } else {
+      toast.error(message);
+    }
+  };
 
   const prams = useParams();
-  console.log(prams.orderID)
+  console.log(prams.orderID);
   useEffect(() => {
     const order = orders.find((p) => p._id === prams.orderID);
-    if(order) {
-      setCustomerName(order.name)
-      setCustomerEmail(order.email)
-      setAddress(order.address)
-      setZipCode(order.zipCode)
-      setProductsSelector(order.products)
+    if (order) {
+      setCustomerName(order.name);
+      setCustomerEmail(order.email);
+      setAddress(order.address);
+      setZipCode(order.zipCode);
+      setProductsSelector(order.products);
     }
-    console.log('order',order)
-  },[])
+    console.log("order", order);
+  }, []);
 
   const handleAddProduct = () => {
     const updataData = {
@@ -69,9 +65,9 @@ function EditOrder() {
   };
 
   useEffect(() => {
-    console.log('adress', adress)
-    console.log('ZipCode', ZipCode)
-  },[ ZipCode , adress ])
+    console.log("adress", adress);
+    console.log("ZipCode", ZipCode);
+  }, [ZipCode, adress]);
 
   const handleDeleteProduct = (productID) => {
     const updatedProducts = productsSelector.filter(
@@ -103,37 +99,34 @@ function EditOrder() {
       totalPrice: totalPrice,
     };
 
-
-    
     try {
       // simulate API call
-      setStatusSubmit('loading');
+      setStatusSubmit("loading");
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/orders/${prams.orderID}`,
         orderData,
         {
           headers: {
-           
             Authorization: `Bearer ${token}`,
           },
         }
       );
       console.log("Upload successful:", response.data);
-      setStatusSubmit('success');
+      setStatusSubmit("success");
       notify("success", "Order Edit successfully");
     } catch (err) {
       console.error(err);
-      setStatusSubmit('edit');
+      setStatusSubmit("edit");
       notify("error", "Error Edit Order ");
     }
   };
 
   const handleIconSubmit = () => {
-    if (statusSubmit === 'loading') {
+    if (statusSubmit === "loading") {
       return <img src={spinner} className="w-5" />;
-    } else if (statusSubmit === 'success') {
+    } else if (statusSubmit === "success") {
       return <i class="bx bx-check text-[20px]"></i>;
-    } else if (statusSubmit === 'edit') {
+    } else if (statusSubmit === "edit") {
       return <i class="bx bx-plus text-[20px]"></i>;
     }
   };
@@ -142,28 +135,19 @@ function EditOrder() {
     <div>
       <ToastContainer position="bottom-left" />
       <div className=" lg:flex justify-between items-center mb-4 ">
-        <div className="flex gap-2 pb-4 lg:pb-0 ">
-          <Link
-            to={"/dashboard/orders"}
-            className="border p-3 hidden lg:block "
-          >
+        <div className="flex items-start gap-1 md:gap-2 pb-3 lg:pb-0 ">
+          <Link to={"/dashboard/orders"} className="border p-2 md:p-3  ">
             <i class="bx bx-arrow-back"></i>
           </Link>
-          <div className="flex items-center gap-2 lg:block">
-            <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i>
-            <span className="text-[12px] hidden lg:block">
-              Back To Order list
-            </span>
-            <h1 className="text-[25px] lg:text-[20px] font-[600] leading-4 ">
+          <div className=" items-center gap-2 mt-[-5px] lg:mt-0 ">
+            {/* <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i> */}
+            <span className="text-[12px] ">Back To orders list</span>
+            <h1 className="text-[25px] lg:text-[30px] font-[600] leading-4 ">
               Edit Order
             </h1>
           </div>
         </div>
         <div className="flex justify-end gap-5">
-          {/* <div className="border-2 p-2 lg:p-3  rounded-[20px] flex items-center gap-2">
-            <i class="bx bx-receipt text-[20px]"></i>
-            <span className="text-[13px] font-[500]">Save Draf</span>
-          </div> */}
           <div
             className="bg-[#F5CAAB] p-2 lg:p-3  rounded-[20px] flex items-center gap-1 cursor-pointer"
             onClick={(e) => handleSubmit(e)}

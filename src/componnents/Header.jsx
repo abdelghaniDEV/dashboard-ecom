@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 function Header({setShowSidebar}) {
   const user = useSelector((statu) => statu.signleUser)
   return (
-    <div className="flex items-center justify-between mx-4 mt-2 mb-5 ">
+    <div className="flex items-center justify-between mx-2 md:mx-4 mt-2 mb-5 ">
       {/* search */}
       <div className="flex gap-5 items-center ">
         <div className="flex gap-3 items-center">
-          <i className="bx bx-menu-alt-left text-[35px] md::hidden" onClick={() => setShowSidebar(true)}></i>
+          <i className="bx bx-menu-alt-left text-[35px] md:hidden" onClick={() => setShowSidebar(true)}></i>
           <div className="hidden lg:block">
             <span className="text-[#aba9a9]">Welcome</span>
             <h1 className="text-[30px] font-semibold leading-[20px]"> Mr <span className="bg-[#] text-[#e4823c]  rounded-[30px]">{user.firstName} {user.lastName}</span></h1>

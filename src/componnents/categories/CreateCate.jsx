@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import spinner  from "../../assets/tube-spinner (1).svg"
+import spinner from "../../assets/tube-spinner (1).svg";
 import { useDispatch } from "react-redux";
 import { fetchCategories } from "../../Redux/slices/categories.slice";
 
@@ -13,15 +13,15 @@ function CreateCate() {
   const [image, setimage] = useState("");
   const [uploadingAdd, setUploadingAdd] = useState();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
 
-  const notify = (type , message) => {
+  const notify = (type, message) => {
     if (type === "success") {
-        toast.success(message)
-    }else {
-        toast.error(message)
+      toast.success(message);
+    } else {
+      toast.error(message);
     }
   };
 
@@ -58,60 +58,60 @@ function CreateCate() {
       formData.append("image", image);
 
       try {
-        setUploadingAdd(true)
+        setUploadingAdd(true);
         const response = await axios.post(
-            `${import.meta.env.VITE_API_URL}/categories`,
-            formData,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              }
-            }
-          );
-          console.log("Upload successful:", response.data);
-          notify('success' , 'success add category');
-          setUploadingAdd(false)
-          dispatch(fetchCategories())
+          `${import.meta.env.VITE_API_URL}/categories`,
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log("Upload successful:", response.data);
+        notify("success", "success add category");
+        setUploadingAdd(false);
+        dispatch(fetchCategories());
       } catch (e) {
-        console.log("Error uploading" , e)
-        notify('error' , 'error add category')
-        setUploadingAdd(false)
+        console.log("Error uploading", e);
+        notify("error", "error add category");
+        setUploadingAdd(false);
       }
     }
   };
 
   const handleIconSubmit = () => {
-    if(uploadingAdd === true) {
-      return <img src={spinner} className="w-5" />
+    if (uploadingAdd === true) {
+      return <img src={spinner} className="w-5" />;
     } else if (uploadingAdd === false) {
-      return <i class='bx bx-check text-[20px]'></i>
-    }else {  
-      return <i class='bx bx-plus text-[20px]'></i>
+      return <i class="bx bx-check text-[20px]"></i>;
+    } else {
+      return <i class="bx bx-plus text-[20px]"></i>;
     }
-   
-  }
+  };
 
   return (
     <div>
-       <ToastContainer position="bottom-left" />
+      <ToastContainer position="bottom-left" />
       {/* header  */}
       <div className=" lg:flex justify-between items-center mb-4 ">
-        <div className="flex gap-2 pb-4 lg:pb-0 ">
-          <Link to={'/dashboard/categories'} className="border p-3 hidden lg:block ">
+        <div className="flex items-start gap-1 md:gap-2 pb-3 lg:pb-0 ">
+          <Link to={"/dashboard/categories"} className="border p-2 md:p-3  ">
             <i class="bx bx-arrow-back"></i>
           </Link>
-          <div className="flex items-center gap-2 lg:block">
-            <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i>
-            <Link to={'/categories'} className="text-[12px] hidden lg:block">
-              Back T categories list
-            </Link>
-            <h1 className="text-[25px] lg:text-[20px] font-[600] leading-4 ">
-              Add New category
+          <div className=" items-center gap-2 mt-[-5px] lg:mt-0 ">
+            {/* <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i> */}
+            <span className="text-[12px] ">Back To Categories list</span>
+            <h1 className="text-[25px] lg:text-[30px] font-[600] leading-4 ">
+              Edit Category
             </h1>
           </div>
         </div>
         <div className="flex justify-end gap-5">
-          <div className="bg-[#F5CAAB] p-2 lg:p-3  rounded-[20px] flex items-center gap-1 cursor-pointer" onClick={(e) => handleSubmitCategory(e)}>
+          <div
+            className="bg-[#F5CAAB] p-2 lg:p-3  rounded-[20px] flex items-center gap-1 cursor-pointer"
+            onClick={(e) => handleSubmitCategory(e)}
+          >
             {handleIconSubmit()}
             <span className="text-[13px] font-[500]">Add category </span>
           </div>

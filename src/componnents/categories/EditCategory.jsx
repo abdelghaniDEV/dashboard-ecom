@@ -13,32 +13,28 @@ function EditCategory() {
   const [image, setimage] = useState("");
   const [previewUrl, setPreviewUrl] = useState();
   const categories = useSelector((state) => state.categories);
-  const [category , setCategory] = useState(null)
+  const [category, setCategory] = useState(null);
 
-  
   const prams = useParams();
 
-  const token = localStorage.getItem('token');
-
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const category = categories.find((c) => c._id === prams.categoryId);
     if (category) {
-        setCategory(category);
+      setCategory(category);
       setname(category.name);
       setdescription(category.description);
       setPreviewUrl(category.image);
-      
     }
   }, [categories, prams.categoryId]);
 
-  
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleChangeImage = (e) => {
-    setimage(e.target.files[0])
-    setPreviewUrl(URL.createObjectURL(e.target.files[0]))
-  }
+    setimage(e.target.files[0]);
+    setPreviewUrl(URL.createObjectURL(e.target.files[0]));
+  };
   // vaslidate field
   const validateField = (inputId, errMsgId, value, errorMessage) => {
     const inputElement = document.getElementById(inputId);
@@ -55,11 +51,11 @@ function EditCategory() {
     }
   };
 
-  const notify = (type , message) => {
+  const notify = (type, message) => {
     if (type === "success") {
-        toast.success(message)
-    }else {
-        toast.error(message)
+      toast.success(message);
+    } else {
+      toast.error(message);
     }
   };
 
@@ -76,8 +72,9 @@ function EditCategory() {
       const formData = new FormData();
 
       if (name !== category.name) formData.append("name", name);
-      if (description!== category.description) formData.append("description", description);
-      if (image!== category.image) formData.append("image", image);
+      if (description !== category.description)
+        formData.append("description", description);
+      if (image !== category.image) formData.append("image", image);
 
       try {
         const response = await axios.patch(
@@ -90,30 +87,28 @@ function EditCategory() {
           }
         );
         console.log("Upload successful:", response.data);
-        dispatch(fetchCategories())
-        notify("success", "Category updated successfully")
+        dispatch(fetchCategories());
+        notify("success", "Category updated successfully");
       } catch (e) {
         console.log("Error uploading", e);
-        notify("error", "Error updating category")
+        notify("error", "Error updating category");
       }
     }
   };
 
   return (
     <div>
-     <ToastContainer position="bottom-left" />
+      <ToastContainer position="bottom-left" />
       {/* header  */}
       <div className=" lg:flex justify-between items-center mb-4 ">
-        <div className="flex gap-2 pb-4 lg:pb-0 ">
-          <Link to={"/dashboard/categories"} className="border p-3 hidden lg:block ">
+        <div className="flex items-start gap-1 md:gap-2 pb-3 lg:pb-0 ">
+          <Link to={"/dashboard/categories"} className="border p-2 md:p-3  ">
             <i class="bx bx-arrow-back"></i>
           </Link>
-          <div className="flex items-center gap-2 lg:block">
-            <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i>
-            <Link to={"/categories"} className="text-[12px] hidden lg:block">
-              Back T categories list
-            </Link>
-            <h1 className="text-[25px] lg:text-[20px] font-[600] leading-4 ">
+          <div className=" items-center gap-2 mt-[-5px] lg:mt-0 ">
+            {/* <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i> */}
+            <span className="text-[12px] ">Back To Categories list</span>
+            <h1 className="text-[25px] lg:text-[30px] font-[600] leading-4 ">
               Edit Category
             </h1>
           </div>

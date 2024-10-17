@@ -87,7 +87,7 @@ function Products({setOpacityBody}) {
     <div className="">
       <div className=" lg:flex justify-between items-center mb-4  ">
         <div className="flex gap-2 pb-4 lg:pb-0  ">
-          <h1 className="text-[25px] sm:text-[35px] font-[600] leading-4 ">
+          <h1 className="text-[30px] sm:text-[35px] font-[600] leading-4 ">
             Products
           </h1>
           <span className="bg-[#f5caab5c] text-[#e4823c] p-1 rounded-[20px] text-[10px]">{products.length} Product</span>

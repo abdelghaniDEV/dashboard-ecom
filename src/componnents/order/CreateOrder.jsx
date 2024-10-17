@@ -197,25 +197,20 @@ function CreateOrder() {
         <div className="flex gap-2 pb-4 lg:pb-0 ">
           <Link
             to={"/dashboard/orders"}
-            className="border p-3 hidden lg:block "
+            className="border p-2 lg:p-3 "
           >
             <i class="bx bx-arrow-back"></i>
           </Link>
-          <div className="flex items-center gap-2 lg:block">
-            <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i>
-            <span className="text-[12px] hidden lg:block">
+          <div className="items-center gap-2 mt-[-5px] lg:mt-0 ">
+            <span className="text-[12px]">
               Back To Order list
             </span>
-            <h1 className="text-الرمز[25px] lg:text-[20px] font-[600] leading-4 ">
+            <h1 className="text-[25px] lg:text-[20px] font-[600] leading-4 ">
               Add New Order
             </h1>
           </div>
         </div>
         <div className="flex justify-end gap-5">
-          <div className="border-2 p-2 lg:p-3  rounded-[20px] flex items-center gap-2">
-            <i class="bx bx-receipt text-[20px]"></i>
-            <span className="text-[13px] font-[500]">Save Draf</span>
-          </div>
           <div
             className="bg-[#F5CAAB] p-2 lg:p-3  rounded-[20px] flex items-center gap-1 cursor-pointer"
             onClick={(e) => handleSubmit(e)}

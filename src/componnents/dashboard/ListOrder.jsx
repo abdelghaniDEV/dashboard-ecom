@@ -35,7 +35,7 @@ function ListOrder() {
       <div className="">
         <Card className=" rounded-none max-h-[334px] overflow-hidden">
           <CardContent className="p-0">
-            <Table className="">
+            <Table className="overflow-scroll sm:overscroll-none w-[500px] sm:w-full">
               <TableHeader className="bg-[#]">
                 <TableRow className="text-white">
                   <TableHead>Order</TableHead>

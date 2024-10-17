@@ -114,7 +114,7 @@ function ListProducts({ products, setOpacityBody }) {
                     <Link to={`${product._id}`} className="flex gap-2 items-center">
                       <img
                         src={product.image[0]}
-                        className="w-[40px] h-[50px] object-cover md:rounded-[10px]"
+                        className="w-[40px] h-[40px] md:h-[50px] object-cover rounded-full md:rounded-[10px]"
                       />
                       <h3 className="xl:text-[15px]  font-[500] hidden sm:block">
                         {product.name}

@@ -220,19 +220,19 @@ const EditProduct = () => {
   };
 
   return (
-    <div className=" lg:w-full pt-4 ">
+    <div className=" lg:w-full md:pt-4 ">
       <ToastContainer position="bottom-left" />
-      <div className=" lg:flex justify-between items-center mb-4 ">
-        <div className="flex gap-2 pb-4 lg:pb-0 ">
+      <div className=" lg:flex lg:justify-between lg:items-center mb-4 ">
+        <div className="flex items-start gap-1 md:gap-2 pb-3 lg:pb-0 ">
           <Link
             to={"/dashboard/products"}
-            className="border p-3 hidden lg:block "
+            className="border p-2 md:p-3  "
           >
             <i class="bx bx-arrow-back"></i>
           </Link>
-          <div className="flex items-center gap-2 lg:block">
-            <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i>
-            <span className="text-[12px] hidden lg:block">
+          <div className=" items-center gap-2 mt-[-5px] lg:mt-0 ">
+            {/* <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i> */}
+            <span className="text-[12px] ">
               Back To product list
             </span>
             <h1 className="text-[25px] lg:text-[30px] font-[600] leading-4 ">

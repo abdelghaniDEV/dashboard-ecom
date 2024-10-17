@@ -22,7 +22,7 @@ function CreateProduct() {
   const [selectedCategories, setSelectedCategories] = useState([]); // Category selection
   const [productPrice, setProductPrice] = useState("");
   const [priceDiscount, setPriceDiscount] = useState("");
-  const [better , setBetter] = useState(false)
+  const [better, setBetter] = useState(false);
   const [productStock, setProductStock] = useState("100");
   const [productSizes, setProductSizes] = useState([]);
   const [ShortDescription, setShortDescription] = useState("");
@@ -32,12 +32,11 @@ function CreateProduct() {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]); // preview url
   const [uploadingAdd, setUploadingAdd] = useState();
-  const categories = useSelector((statu) => statu.categories)
+  const categories = useSelector((statu) => statu.categories);
 
   const dispatch = useDispatch();
 
-  const token = localStorage.getItem('token');
-  
+  const token = localStorage.getItem("token");
 
   const handleFileChange = (event) => {
     const filesArray = Array.from(event.target.files);
@@ -131,7 +130,6 @@ function CreateProduct() {
       formData.append("details", productDetails);
       formData.append("better", better);
 
-
       try {
         setUploadingAdd(true);
         const response = await axios.post(
@@ -220,25 +218,19 @@ function CreateProduct() {
     <div className=" lg:w-full pt-4 ">
       <ToastContainer position="bottom-left" />
       <div className=" lg:flex justify-between items-center mb-4 ">
-        <div className="flex gap-2 pb-4 lg:pb-0 ">
-          <Link
-            to={"/dashboard/products"}
-            className="border p-3 hidden lg:block "
-          >
+        <div className="flex items-start gap-1 md:gap-2 pb-3 lg:pb-0 ">
+          <Link to={"/dashboard/products"} className="border p-2 md:p-3  ">
             <i class="bx bx-arrow-back"></i>
           </Link>
-          <div className="flex items-center gap-2 lg:block">
-            <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i>
-            <span className="text-[12px] hidden lg:block">
-              Back To product list
-            </span>
-            <h1 className="text-[20px] lg:text-[20px] font-[600] leading-4 ">
-              Add New Product
+          <div className=" items-center gap-2 mt-[-5px] lg:mt-0 ">
+            {/* <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i> */}
+            <span className="text-[12px] ">Back To product list</span>
+            <h1 className="text-[25px] lg:text-[30px] font-[600] leading-4 ">
+              Create Product
             </h1>
           </div>
         </div>
         <div className="flex justify-end gap-5">
-         
           <div
             className="bg-[#F5CAAB] p-2 lg:p-3  rounded-[20px] flex items-center gap-1 cursor-pointer"
             onClick={handleUpload}
@@ -544,14 +536,16 @@ function CreateProduct() {
               />
             </div>
             <div className="mt-4 flex flex-col gap-1">
-              <h2 className="text-[15px] font-[500] text-[#474B4F]">Show in home</h2>
-              <Select onValueChange={(e) => setBetter(e)} >
+              <h2 className="text-[15px] font-[500] text-[#474B4F]">
+                Show in home
+              </h2>
+              <Select onValueChange={(e) => setBetter(e)}>
                 <SelectTrigger className="w-[full] bg-[#EEEEEE]">
-                  <SelectValue placeholder="Better"/>
+                  <SelectValue placeholder="Better" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value={false} >false</SelectItem>
-                  <SelectItem value={true} >true</SelectItem>
+                  <SelectItem value={false}>false</SelectItem>
+                  <SelectItem value={true}>true</SelectItem>
                 </SelectContent>
               </Select>
             </div>
