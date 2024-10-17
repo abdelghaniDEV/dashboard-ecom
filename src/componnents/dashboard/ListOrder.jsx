@@ -21,13 +21,13 @@ function ListOrder() {
   return (
     <div className="mb-4 ">
       <div className="flex justify-between items-center py-2 px-3">
-        <h1 className="font-[600] text-[30px] ">
+        <h1 className="font-[600] text-[22px] md:text-[30px] ">
           New Orders
           <span className="bg-[#f5caab5c] text-[#e4823c] p-1 rounded-[20px] font-[400] ml-1 text-[10px]">
             {orders.length} order
           </span>
         </h1>
-        <Link to={'/dashboard/orders'} className=" border-[#f2b78d] border-b-[2px] cursor-pointer  text-[16px] font-[500]  flex gap-1 items-center">
+        <Link to={'/dashboard/orders'} className=" border-[#f2b78d] border-b-[2px] cursor-pointr text-[13px]  md:text-[16px] font-[500]  flex gap-1 items-center">
            <span>All Order</span>
            <i class='bx bx-right-top-arrow-circle text-[20px] text-[#f2b78d]'></i>
         </Link>

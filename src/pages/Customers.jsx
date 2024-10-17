@@ -17,15 +17,7 @@ function Customers() {
              {customers.length} customer
           </span>
         </div>
-        <div className="flex justify-end items-center gap-3">
-          {/* <DatePickerDemo setRangeDate={setRangeDate} /> */}
-          <div className="bg-[#F5CAAB] p-2 lg:py-[6px]  rounded-[20px] flex items-center gap-1">
-            <i class="bx bx-plus text-[20px]"></i>
-            <Link to={"create-order"} className="text-[13px] font-[500]">
-              Create Order
-            </Link>
-          </div>
-        </div>
+       
       </div>
       {/* list customers */}
       <div>

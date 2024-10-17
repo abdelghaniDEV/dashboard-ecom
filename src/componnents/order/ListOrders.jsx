@@ -76,7 +76,7 @@ function ListOrders({ orders }) {
 
 
   return (
-    <div>
+    <div className="mt-3">
       <ToastContainer position="bottom-left" />
       <Table className="border">
         <TableHeader className="bg-[#F9F9F9]">

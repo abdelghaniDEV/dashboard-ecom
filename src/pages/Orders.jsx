@@ -21,8 +21,6 @@ function Orders() {
     } else {
       setOrderFetch(orders);
     }
-
-    
   }, [rangeDate]);
 
   // filter orders by date range
@@ -51,7 +49,7 @@ function Orders() {
           </span>
         </div>
         <div className="flex justify-end items-center gap-3">
-          <DatePickerDemo setRangeDate={setRangeDate} />
+         
           <div className="bg-[#F5CAAB] p-2 lg:py-[6px]  rounded-[20px] flex items-center gap-1">
             <i class="bx bx-plus text-[20px]"></i>
             <Link to={"create-order"} className="text-[13px] font-[500]">
@@ -60,50 +58,56 @@ function Orders() {
           </div>
         </div>
       </div>
-      <div className="custom-gradient grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4 ">
-        <div className="flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-[#76a963] text-white">
-          <h3 className="text-[14px]">Total Items</h3>
+      <div className="custom-gradient grid grid-cols-1 lg:grid-cols-3 gap-3 mb-3 ">
+        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-box-total-products  text-white">
+          <h3 className="text-[14px]">Total Products</h3>
           <div className="flex gap-[7px]">
             <i class="bx bx-category-alt text-[20px]"></i>
-            <h1 className="text-[25px] md:text-[30px] font-[600]">9.856</h1>
+            <i class="bx bx-category-alt md:text-[20px] text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D]"></i>
+            <h1 className="text-[30px] font-[600]">9.856</h1>
           </div>
           <div className="flex items-center">
             <i class="bx bxs-chevrons-up text-[#8BE78B]"></i>
-            <h3 className="md:text-[14px] text-[12px]">
+            <h3 className="text-[14px]">
               <span className="text-[#8BE78B] font-[600]">+35 %</span> from last
               month
             </h3>
           </div>
         </div>
-        <div className="flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-[#a98563]">
+        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-box-total-revenue">
           <h3 className="text-[14px]">Revenue</h3>
           <div className="flex gap-[7px]">
             <span className="text-[20px]">$</span>
-            <h1 className="md:text-[30px] text-[25px] font-[600]">13,456.</h1>
+            <span className="text-[180px] absolute top-[-40px] right-0 text-[#A98563]">
+              $
+            </span>
+            <h1 className="text-[30px] font-[600]">13.456</h1>
           </div>
           <div className="flex items-center">
             <i class="bx bxs-chevrons-up text-[#8BE78B]"></i>
-            <h3 className="md:text-[14px] text-[12px]">
+            <h3 className="text-[14px]">
               <span className="text-[#8BE78B] font-[600]">+35 %</span> from last
               month
             </h3>
           </div>
         </div>
-        <div className="flex flex-col gap-1 border-[2px] rounded-[20px] p-4 shadow-md bg-[#f2b78d]">
+        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4 shadow-md md:bg-[#f2b78d] bg-box-total-orders">
           <h3 className="text-[14px]">Total Orders</h3>
           <div className="flex gap-[7px]">
             <i class="bx bx-shopping-bag text-[20px]"></i>
-            <h1 className="md:text-[30px] text-[25px] font-[600]">{orders.length}</h1>
+            <i class="bx bx-shopping-bag text-[150px] absolute top-3 right-[-40px] text-[#F2B78D]"></i>
+            <h1 className="text-[30px] font-[600]">{orders.length}</h1>
           </div>
           <div className="flex items-center">
             <i class="bx bxs-chevrons-down text-[#821f1f]"></i>
-            <h3 className="md:text-[14px]  text-[12px]">
+            <h3 className="text-[14px]">
               <span className="text-[#821f1f] font-[600]">+35 %</span> from last
               month
             </h3>
           </div>
         </div>
       </div>
+      <DatePickerDemo setRangeDate={setRangeDate} />
       <ListOrders orders={orderFetch} />
     </div>
   );
