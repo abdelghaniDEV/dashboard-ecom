@@ -85,7 +85,7 @@ function ListOrders({ orders }) {
             {/* <TableHead>Product</TableHead> */}
             <TableHead>Custemer</TableHead>
             <TableHead className="hidden sm:table-cell">Email</TableHead>
-            <TableHead>Total</TableHead>
+            <TableHead className="hidden xl:table-cell">Total</TableHead>
             <TableHead className="hidden xl:table-cell ">Items</TableHead>
             <TableHead className="hidden sm:table-cell">Date</TableHead>
             <TableHead className=" ">Action</TableHead>
@@ -110,7 +110,7 @@ function ListOrders({ orders }) {
                 <TableCell className="hidden sm:table-cell">
                   {order.email}
                 </TableCell>
-                <TableCell>${order.totalPrice}</TableCell>
+                <TableCell className="hidden xl:table-cell">${order.totalPrice}</TableCell>
                 <TableCell className="hidden xl:table-cell  ">
                   {item} item
                 </TableCell>
@@ -118,7 +118,7 @@ function ListOrders({ orders }) {
                   {dataOrder}
                 </TableCell>
                 <TableCell className="">
-                  <div className="grid sm:grid-cols-3 grid-cols-2 gap-1 md:grid-cols-3 md:gap-2 items-center text-[13px]">
+                  <div className="grid text-center sm:grid-cols-3 grid-cols-3 gap-1 md:grid-cols-3 md:gap-2 items-center text-[13px]">
                     <Dialog className="w-[800px]">
                       <DialogTrigger className="">
                         <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
@@ -142,7 +142,7 @@ function ListOrders({ orders }) {
                         </DialogHeader>
                       </DialogContent>
                     </Dialog>
-                    <Link to={`${order._id}`} className="hidden sm:block">
+                    <Link to={`${order._id}`} className=" sm:block">
                       <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
                       <span className="hidden md:block bg-[#76a963] text-white rounded-[8px] p-2 text-center">
                         Edit
@@ -152,7 +152,6 @@ function ListOrders({ orders }) {
                       <DialogTrigger className=" ">
                         <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
                         <span className=" bg-[#FDD8E0] hidden md:block text-[#F4164F] md:rounded-[8px]  p-2 text-center">
-                          {" "}
                           Delete
                         </span>
                       </DialogTrigger>
@@ -190,14 +189,14 @@ function ListOrders({ orders }) {
       </Table>
       <div>
         <ReactPaginate
-          previousLabel={"Previous"}
+          previousLabel={"Prev"}
           nextLabel={"Next"}
           breakLabel={"..."}
           pageCount={pageCount}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
-          containerClassName={"flex justify-end items-center mt-4 space-x-2 "}
+          containerClassName={"flex justify-center items-center mt-4 space-x-2 "}
           pageClassName={
             "px-3 py-1 border rounded hover:bg-[#b58df2] hover:text-white"
           }
