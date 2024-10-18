@@ -121,7 +121,6 @@ const App = () => {
               </ProtectedRoute>
           }
         />
-       
       </Routes>
     </div>
   );
