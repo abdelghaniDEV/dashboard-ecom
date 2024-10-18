@@ -198,7 +198,7 @@ function Barchart() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className='overflow-scroll md:overscroll-none'>
+        <CardContent className='overflow-scroll md:overflow-hidden'>
           <ChartContainer config={ChartConfig} className="h-[200px] w-[150%]  md:w-full ">
             <BarChart accessibilityLayer data={data}>
               <CartesianGrid vertical={false} />

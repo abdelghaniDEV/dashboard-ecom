@@ -59,11 +59,11 @@ function Orders() {
         </div>
       </div>
       <div className="custom-gradient grid grid-cols-1 lg:grid-cols-3 gap-3 mb-3 ">
-        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-box-total-products  text-white">
+        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] py-6 px-4  shadow-md bg-box-total-products  text-white">
           <h3 className="text-[14px]">Total Products</h3>
           <div className="flex gap-[7px]">
             <i class="bx bx-category-alt text-[20px]"></i>
-            <i class="bx bx-category-alt md:text-[20px] text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D]"></i>
+            <i class="bx bx-category-alt text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D]"></i>
             <h1 className="text-[30px] font-[600]">9.856</h1>
           </div>
           <div className="flex items-center">
@@ -74,7 +74,7 @@ function Orders() {
             </h3>
           </div>
         </div>
-        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-box-total-revenue">
+        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] py-6 px-4  shadow-md bg-box-total-revenue">
           <h3 className="text-[14px]">Revenue</h3>
           <div className="flex gap-[7px]">
             <span className="text-[20px]">$</span>
@@ -91,7 +91,7 @@ function Orders() {
             </h3>
           </div>
         </div>
-        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4 shadow-md md:bg-[#f2b78d] bg-box-total-orders">
+        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] py-6 px-4 shadow-md md:bg-[#f2b78d] bg-box-total-orders">
           <h3 className="text-[14px]">Total Orders</h3>
           <div className="flex gap-[7px]">
             <i class="bx bx-shopping-bag text-[20px]"></i>

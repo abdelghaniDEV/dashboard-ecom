@@ -133,12 +133,12 @@ function ListProducts({ products, setOpacityBody }) {
                   </TableCell>
                   <TableCell className="">
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-[13px]">
-                      <button className="">
+                      <a href={`https://ecommerce-beta-ivory.vercel.app/product/${product._id}`} className="">
                         <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
                         <span className="hidden md:block bg-[#b58df2] text-white rounded-[8px] p-2 text-center ">
                           Views
                         </span>
-                      </button>
+                      </a>
                       <Link to={`${product._id}`} className="hidden md:block">
                         <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
                         <span className="hidden md:block bg-[#76a963] text-white rounded-[8px] p-2 text-center">

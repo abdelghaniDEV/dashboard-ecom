@@ -7,32 +7,20 @@ import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import logo from "../assets/SAFWA@4x.png";
 import { useDispatch } from "react-redux";
-import { fetchSingleUser } from "../Redux/slices/userSingle.slice";
-import { fetchProducts } from "../Redux/slices/products.slice";
+import spinner from "../assets/tube-spinner (1).svg";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  const fetchData = () => {
-      
-    // Fetch data if user is authenticated
-    // dispatch(fetchProducts());
-    // dispatch(fetchCategories());
-    // dispatch(fetchOrders());
-    // dispatch(fetchCustomer());
-    // dispatch(fetchAnalyticByMonth());
-    // dispatch(fetchAnalyticOrders());
-    // dispatch(fetchSingleUser());
-    console.log('ppp')
-  }
+  const [statusSubmit, setStatusSubmit] = useState("");
 
   const handleLogin = async (e) => {
     
     e.preventDefault();
     try {
+      setStatusSubmit("loading");
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/users/login`,
         { email, password },{
@@ -48,9 +36,20 @@ const Login = () => {
       // 
        
       navigate("/dashboard/");
-     
+      setStatusSubmit("success");
     } catch (err) {
       setError("Log in failed. Verify that the data is correct.");
+      setStatusSubmit("error");
+    }
+  };
+
+  const handleIconSubmit = () => {
+    if (statusSubmit === "loading") {
+      return <img src={spinner} className="w-7" />;
+    } else if (statusSubmit === "success") {
+      return <i class="bx bx-check text-[30px]"></i>;
+    }else if(statusSubmit === 'error') {
+      return <i class="bx bx-x text-[30px]"></i>;
     }
   };
 
@@ -62,7 +61,7 @@ const Login = () => {
           <h1 className="text-[40px] font-[600]">
             Welcome <span className="text-[]">Back</span>
           </h1>
-          <p className="text-[20px]">Hay, Entre your details to get sign in </p>
+          <p className="md:text-[20px]">Hay, Entre your details to get sign in </p>
         </div>
         <form
           onSubmit={handleLogin}
@@ -79,7 +78,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="focus:outline-[#f2b78d] focus:border-none"
+              className="focus:outline-[#f2b78d] "
             />
           </div>
           <div className="flex flex-col gap-3">
@@ -92,14 +91,14 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="focus:outline-[#f2b78d] focus:border-none"
+              className="focus:outline-[#f2b78d]"
             />
           </div>
 
           <Button
             type="submit"
-            className="bg-[#FEC887] text-black text-[15px] font-normal  hover:bg-[]"
-          >Sign in</Button>
+            className="bg-[#FEC887] text-black text-[15px] font-semibold  hover:bg-[] flex items-center gap-1 "
+          >Sign in {handleIconSubmit()}</Button>
         </form>
         {error && <p className="text-[red] text-[15px] pt-2">{error}</p>}
       </Card>

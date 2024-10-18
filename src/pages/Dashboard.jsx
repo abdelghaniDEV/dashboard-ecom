@@ -5,16 +5,9 @@ import StaticDashbord from "../componnents/dashboard/StaticDashbord";
 import {CategoryChart} from '../componnents/dashboard/CategoryChart';
 import ListTopProducts from '../componnents/dashboard/ListTopProducts';
 import ListOrder from '../componnents/dashboard/ListOrder';
-import desShop from '../assets/undraw_heavy_box_agqi@4x.png'
+import desShop from '../assets/undraw_Small_town_re_7mcn@4x.png'
+import desapp from '../assets/65_objects@4x.png'
 import { Button } from '../components/ui/button';
-import logoColor from "../assets/SAFWA@4xcolor.png"
-import { fetchProducts } from '../Redux/slices/products.slice';
-import { fetchCategories } from '../Redux/slices/categories.slice';
-import { fetchOrders } from '../Redux/slices/orders.slice';
-import { fetchCustomer } from '../Redux/slices/customers.slice';
-import { fetchAnalyticByMonth } from '../Redux/slices/anlytic.slice';
-import { fetchAnalyticOrders } from '../Redux/slices/analyticCategory';
-import { fetchSingleUser } from '../Redux/slices/userSingle.slice';
 
 
 function Dashboard() {
@@ -63,16 +56,17 @@ function Dashboard() {
       </div>
       <div className="lg:w-[30%]">
         <CategoryChart />
-        <ListTopProducts/>
-        <div className='w-full h-[240px] relative rounded-[20px] bg-[#aaf28d5d] mt-4 p-4 flex flex-col items-center gap-5'>
+        {/* <ListTopProducts/> */}
+        <div className='w-full  relative rounded-[20px] bg-[#F2F9F6] mt-4 p-4 flex flex-col items-center gap-5'>
            <div className='flex flex-col items-center '>
-             <img src={desShop} className='w-[128.82px] h-[82.23px]' />
-             <h2 className='text-[20px] text-center font-[500] leading-[22px]'>Take your <span className='text-[#76a963]'>business</span> to the next <span className='text-[#76a963]'>Level</span></h2>
+             <img src={desShop} className='w-' />
+             <h2 className='text-[20px] text-center font-[500] leading-[22px]'>Take your <span className='text-[#F2B78D]'>business</span> to the next <span className='text-[#F2B78D]'>Level</span></h2>
            </div>
               {/* <div className='absolute bg-[#b58df2] h-10 w-10 rounded-full top-10 right-5' ></div>
               <div className='absolute bg-[#a98563] h-10 w-10 rounded-full left-6 ' ></div>
               <div className='absolute bg-[#f2b78d] h-10 w-10 rounded-full bottom-[60px] left-3' ></div> */}
-          <div className='pb-5'> <Button className="bg-[#76A963] text-[18px]"><a href='https://abdelghanidev.github.io/ecommerce-demo'>Visit Your Shop</a></Button></div>
+              <div className='text-center'><img src={desapp} className='w-[150px]' /></div>
+          <div className='pb-5'> <Button className="bg-[#A98563] hover:bg-[#a98563c6] text-[18px]"><a href='https://ecommerce-beta-ivory.vercel.app/'>Visit Your Shop</a></Button></div>
         </div>
       </div>
     </div>

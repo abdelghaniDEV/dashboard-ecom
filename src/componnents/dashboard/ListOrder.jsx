@@ -27,13 +27,13 @@ function ListOrder() {
             {orders.length} order
           </span>
         </h1>
-        <Link to={'/dashboard/orders'} className=" border-[#f2b78d] border-b-[2px] cursor-pointr text-[13px]  md:text-[16px] font-[500]  flex gap-1 items-center">
+        {/* <Link to={'/dashboard/orders'} className=" border-[#f2b78d] border-b-[2px] cursor-pointr text-[13px]  md:text-[16px] font-[500]  flex gap-1 items-center">
            <span>All Order</span>
            <i class='bx bx-right-top-arrow-circle text-[20px] text-[#f2b78d]'></i>
-        </Link>
+        </Link> */}
       </div>
       <div className="">
-        <Card className=" rounded-none max-h-[334px] overflow-hidden">
+        <Card className="  border-none max-h-[322px]  overflow-hidden">
           <CardContent className="p-0">
             <Table className="overflow-scroll sm:overscroll-none w-[500px] sm:w-full">
               <TableHeader className="bg-[#]">
@@ -50,6 +50,7 @@ function ListOrder() {
                 {orders.map((order) => {
                   const orderDate = new Date(order.createdAt).toDateString();
                   return (
+                    
                     <TableRow key={order._id} className="">
                       <TableCell>#{order.invoiceNumber}</TableCell>
                       <TableCell className="flex gap-[6px] items-center">
@@ -67,6 +68,7 @@ function ListOrder() {
                         ${order.totalPrice}
                       </TableCell>
                     </TableRow>
+                   
                   );
                 })}
               </TableBody>

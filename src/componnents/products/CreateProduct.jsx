@@ -157,6 +157,7 @@ function CreateProduct() {
         setUploadingAdd(false);
       } catch (error) {
         console.error("Error uploading product:", error);
+        setUploadingAdd(false);
         notify("error", "Error added  product");
       }
     }
@@ -166,7 +167,7 @@ function CreateProduct() {
     if (newSize && !productSizes.includes(newSize)) {
       setProductSizes([...productSizes, newSize]);
     }
-    setNewSize(""); // إعادة تعيين حقل المقاس الجديد
+    setNewSize(""); // 
   };
 
   const handleRemoveImage = (index) => {

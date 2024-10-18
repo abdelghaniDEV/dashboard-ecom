@@ -322,7 +322,7 @@ function CreateOrder() {
           <p className="text-red-500 text-[13px] mt-[-20px]">
             {errors.products}
           </p>
-          <div className=" grid grid-cols-3 gap-4">
+          <div className=" grid grid-cols-1 md:grid-cols-3 gap-4">
             {productsSelector.map((product) => {
               return (
                 <div

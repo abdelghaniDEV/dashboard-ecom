@@ -10,7 +10,7 @@ import { store } from './Redux/store.jsx'
 createRoot(document.getElementById('root')).render(
 
   <StrictMode>
-   <BrowserRouter basename='/dashborad-ecome2/' >
+   <BrowserRouter >
     <Provider store={store}>
     <App />
     </Provider>

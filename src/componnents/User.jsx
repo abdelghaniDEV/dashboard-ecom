@@ -38,14 +38,14 @@ function User() {
               alt="User"
               className="w-9 h-9 lg:w-10 lg:h-10 rounded-full"
             />
-            <div className="md:flex flex-col justify-start hidden md:block ">
+            {/* <div className="md:flex flex-col justify-start hidden ">
               <h3 className="text-[12px] font-[500] leading-[8px] ">
                 {user?.firstName} {user?.lastName}
               </h3>
               <h5 className="text-[13px] text-start font-[500] text-[#]">
                 Super {user.role}
               </h5>
-            </div>
+            </div> */}
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
