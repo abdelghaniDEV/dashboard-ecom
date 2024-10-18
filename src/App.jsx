@@ -62,8 +62,8 @@ const App = () => {
   return (
     <div className="app-container">
       <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
-       
         <Route
           path="/dashboard/*"
           element={
