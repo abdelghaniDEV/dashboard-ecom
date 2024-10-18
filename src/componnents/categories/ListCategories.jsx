@@ -93,7 +93,6 @@ function ListCategories({ setOpacityBody }) {
                 <TableCell className="text-[16px]">{category.name}</TableCell>
                 <TableCell className=" md:w-[420px] flex gap-1 items-center">
                   <div className="sm:flex sm:block gap-1 items-center hidden ">
-                    {" "}
                     {products
                       .filter(
                         (product) => product.category[0] === category.name
@@ -118,23 +117,23 @@ function ListCategories({ setOpacityBody }) {
                   </div>
                 </TableCell>
                 <TableCell className="">
-                  <div className="grid grid-cols-3 sm:gap-2 text-[13px]">
+                  <div className="text-center grid grid-cols-3 sm:gap-2 text-[13px]">
                     <Link className="">
-                      <i class="bx bx-show bg-[#b58df2] sm:hidden text-white rounded-[8px] p-[13px] text-center"></i>
-                      <span className="hidden sm:block bg-[#b58df2] text-white rounded-[8px] p-2 text-center ">
+                      <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
+                      <span className="hidden md:block bg-[#b58df2] text-white rounded-[8px] p-2 text-center ">
                         Views
                       </span>
                     </Link>
                     <Link to={`${category._id}`}>
-                      <i class="bx bx-edit-alt bg-[#76a963] sm:hidden text-white rounded-[8px] p-[13px] text-center"></i>
-                      <span className="hidden sm:block bg-[#76a963] text-white rounded-[8px] p-2 text-center">
+                      <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
+                      <span className="hidden md:block bg-[#76a963] text-white rounded-[8px] p-2 text-center">
                         Edit
                       </span>
                     </Link>
                     <Dialog>
                       <DialogTrigger className="">
-                        <i class="bx bx-trash-alt sm:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[13px] text-center"></i>
-                        <span className=" bg-[#FDD8E0] hidden sm:block text-[#F4164F]  rounded-[8px]  p-2 text-center">
+                        <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
+                        <span className=" bg-[#FDD8E0] hidden md:block text-[#F4164F]  rounded-[8px]  p-2 text-center">
 
                           Delete
                         </span>

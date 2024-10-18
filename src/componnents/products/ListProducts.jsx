@@ -98,7 +98,7 @@ function ListProducts({ products, setOpacityBody }) {
               <TableHead>Rank</TableHead>
               <TableHead>Product</TableHead>
               <TableHead>Price</TableHead>
-              <TableHead>Category</TableHead>
+              <TableHead className="hidden sm:table-cell">Category</TableHead>
               <TableHead className="hidden xl:table-cell">Stock</TableHead>
               <TableHead className="hidden sm:table-cell">Date</TableHead>
               <TableHead className="">Action</TableHead>
@@ -116,13 +116,13 @@ function ListProducts({ products, setOpacityBody }) {
                         src={product.image[0]}
                         className="w-[40px] h-[40px] md:h-[50px] object-cover rounded-full md:rounded-[10px]"
                       />
-                      <h3 className="xl:text-[15px]  font-[500] hidden sm:block">
+                      <h3 className="xl:text-[15px] text-[13px] sm:text-[14px]  font-[500]  sm:block">
                         {product.name}
                       </h3>
                     </Link>
                   </TableCell>
                   <TableCell>${product.price}</TableCell>
-                  <TableCell className="xl:w-[100px]">
+                  <TableCell className="hidden sm:table-cell  xl:w-[100px]">
                     {product.category[0]}
                   </TableCell>
                   <TableCell className="hidden xl:table-cell">
