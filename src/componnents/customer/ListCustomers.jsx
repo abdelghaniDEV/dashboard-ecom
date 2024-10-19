@@ -76,7 +76,7 @@ function ListCustomers({ customers }) {
           {customers.map((customer, index) => {
             const dateCustomer = new Date(customer.createdAt).toDateString();
             return (
-              <TableRow className="xl:text-[15px] text-[14px]">
+              <TableRow className="xl:text-[15px] text-[15px]">
                 <TableCell>{index + 1}</TableCell>
                 <TableCell className="">{customer.name}</TableCell>
                 <TableCell className="hidden sm:table-cell">{customer.email}</TableCell>

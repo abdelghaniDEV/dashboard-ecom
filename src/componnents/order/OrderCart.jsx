@@ -32,7 +32,7 @@ function OrderCart({ order }) {
     
   });
   return (
-    <TableRow className="xl:text-[15px] text-[14px]">
+    <TableRow className="xl:text-[15px] text-[15px]">
       <TableCell className="">#{order.invoiceNumber}</TableCell>
       <TableCell>
         <Link to={`${order._id}`}>{order.name}</Link>
