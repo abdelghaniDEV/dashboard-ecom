@@ -46,7 +46,7 @@ function SideBar({ setShowSidebar, showSidebar }) {
             GENERAL
           </span>
           <div className="mt-2 mx-6">
-            <ul className="md:text-[15px] text-[18px] text-[#8AA1A3] flex flex-col gap-4">
+            <ul className="md:text-[15px] text-[18px] text-[#8AA1A3] flex flex-col md:gap-4">
               <Link
                 to={"/dashboard"}
                 className="flex items-center gap-2 rounded-[8px] p-2 "
