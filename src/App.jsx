@@ -5,7 +5,7 @@ import SideBar from "./componnents/SideBar";
 import Header from "./componnents/Header";
 // import { Route, Routes } from "react-router";
 import { fetchProducts } from "./Redux/slices/products.slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Products from "./pages/Products";
 import CreateProduct from "./componnents/products/CreateProduct";
 import EditProduct from "./componnents/products/EditeProduct";
@@ -29,10 +29,10 @@ import { fetchAnalyticByMonth } from "./Redux/slices/anlytic.slice";
 import { fetchAnalyticOrders } from "./Redux/slices/analyticCategory";
 import { fetchSingleUser } from "./Redux/slices/userSingle.slice";
 import CreateOrder from "./componnents/order/CreateOrder";
+import Profile from "./componnents/profile/Profile";
+import Team from "./pages/Team";
+import { fetchUsers } from "./Redux/slices/users.slice";
 
-// import { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { Navigate, Route, Routes } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -40,6 +40,7 @@ const ProtectedRoute = ({ children }) => {
 };
 
 const App = () => {
+  const user = useSelector((state) => state.signleUser)
   const [opacityBody, setOpacityBody] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false)
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const App = () => {
       dispatch(fetchCustomer());
       dispatch(fetchAnalyticByMonth());
       dispatch(fetchAnalyticOrders());
-  
+      dispatch(fetchUsers())
   }, []);
 
 
@@ -114,6 +115,8 @@ const App = () => {
                         path="customers/:customerID"
                         element={<CustomerDetails />}
                       />
+                      <Route path='profile/:userName' element={<Profile />} />
+                      <Route path='team' element={<Team />} />
                     </Routes>
                   </div>
                 </div>

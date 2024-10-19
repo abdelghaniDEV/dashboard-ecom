@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import userAvatar from "../assets/FB_IMG_1705437194399.jpg";
 import {
   DropdownMenu,
@@ -14,6 +14,8 @@ import { fetchSingleUser } from "../Redux/slices/userSingle.slice";
 
 function User() {
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const user = useSelector((statu) => statu.signleUser);
   const token = localStorage.getItem("token");
   useEffect(() => {
     if (token) {
@@ -21,7 +23,7 @@ function User() {
     }
   }, []);
 
-  const user = useSelector((statu) => statu.signleUser);
+
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
@@ -30,7 +32,7 @@ function User() {
 
   return (
     <div>
-      <DropdownMenu>
+      <DropdownMenu open={open} onOpenChange={setOpen}>
         <DropdownMenuTrigger className="borde-none outline-none">
           <div className="flex gap-2 items-center lg:border-l-2 lg:px-3 py-1 ">
             <img
@@ -52,8 +54,8 @@ function User() {
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <div className="flex flex-col gap-2">
-            <DropdownMenuItem>
-              <Link className="flex gap-1 items-center ">
+            <DropdownMenuItem onClick={() => setOpen(false)}>
+              <Link to={`profile/${user.firstName}-${user.lastName}`} className="flex gap-1 items-center ">
                 <i class="bx bx-user-circle text-[18px]"></i>
                 <span>Profile</span>
               </Link>
