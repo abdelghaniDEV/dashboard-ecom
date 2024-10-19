@@ -128,7 +128,7 @@ function OrderCart({ order }) {
             </DropdownMenuItem>
             <DropdownMenuItem className="">
               <Link
-               
+               to={`${order._id}`}
                 className="flex items-center gap-2 font-[500]"
               >
                 <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[5px] text-center"></i>
