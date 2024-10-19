@@ -97,7 +97,7 @@ function ListOrders({ orders }) {
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
-          containerClassName={"flex justify-center items-center mt-4 space-x-2 "}
+          containerClassName={"flex justify-center md:justify-end items-center mt-4 space-x-2 "}
           pageClassName={
             "px-3 py-1 border rounded hover:bg-[#b58df2] hover:text-white"
           }

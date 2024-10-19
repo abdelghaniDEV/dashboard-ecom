@@ -9,6 +9,7 @@ import logo from "../assets/SAFWA@4x.png";
 import { useDispatch } from "react-redux";
 import spinner from "../assets/tube-spinner (1).svg";
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -85,18 +86,19 @@ const Login = () => {
               className="focus:outline-[#f2b78d] "
             />
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 relative">
             <Label htmlFor="Password" className="text-[#aba9a9]">
               Password
             </Label>
             <Input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="focus:outline-[#f2b78d]"
+              className="focus:outline-[#f2b78d] "
             />
+            <i class='bx bx-show absolute right-2 text-[20px] top-[35px] cursor-pointer' onClick={() => setShowPassword(!showPassword)}></i>
           </div>
 
           <Button
