@@ -112,7 +112,7 @@ function OrderCart({ order }) {
       </TableCell>
       <TableCell className="md:hidden">
         <DropdownMenu>
-          <DropdownMenuTrigger>
+          <DropdownMenuTrigger className=" focus:outline-none">
             <i class="bx bx-dots-vertical-rounded text-[25px] p-[2px] bg-[#F6F6F6] rounded-[4px]"></i>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-[200px] mx-4">
