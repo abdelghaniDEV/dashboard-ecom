@@ -50,28 +50,28 @@ function User() {
             </div> */}
           </div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="w-[200px] mx-4">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <div className="flex flex-col gap-2">
             <DropdownMenuItem onClick={() => setOpen(false)}>
-              <Link to={`profile/${user.firstName}-${user.lastName}`} className="flex gap-1 items-center ">
-                <i class="bx bx-user-circle text-[18px]"></i>
+              <Link to={`profile/${user.firstName}-${user.lastName}`} className="flex gap-2 items-center ">
+                <i class="bx bx-user-circle  text-[20px]"></i>
                 <span>Profile</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link className="flex gap-1 items-center ">
-                <i class="bx bx-universal-access text-[18px]"></i>
+              <Link className="flex gap-2 items-center ">
+                <i class="bx bx-universal-access  text-[20px]"></i>
                 <span>{user.role}</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem onClick={handleLogOut}>
               <Link
                 to={"/login"}
-                className="flex gap-1 items-center text-red-400"
+                className="flex gap-2 items-center text-red-600"
               >
-                <i class="bx bx-log-out-circle text-[18px]"></i>
+                <i class="bx bx-log-out-circle  text-[20px]"></i>
                 <span>Logout</span>
               </Link>
             </DropdownMenuItem>

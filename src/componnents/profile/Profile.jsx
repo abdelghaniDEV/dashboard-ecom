@@ -82,17 +82,28 @@ function Profile() {
               <Label className="text-[15px] font-[500] text-[#474B4F]">
                 Access
               </Label>
-              <div className="flex gap-2">
-                <span className="bg-[#E8F8EE] font-[500] text-[#329167] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#329167]">
-                  Admin
-                </span>
-                <span className="bg-[#F4F2FD] font-[500] text-[#5D2CE0] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#5D2CE0]">
-                  Data Import
-                </span>
-                <span className="bg-[#EEF8FF] font-[500] text-[#0047C4] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#0047C4]">
-                  Read Data
-                </span>
-              </div>
+              {user.role == "admin" ? (
+                <div className="flex gap-2">
+                  <span className="bg-[#E8F8EE] font-[500] text-[#329167] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#329167]">
+                    Admin
+                  </span>
+                  <span className="bg-[#F4F2FD] font-[500] text-[#5D2CE0] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#5D2CE0]">
+                    Data Import
+                  </span>
+                  <span className="bg-[#EEF8FF] font-[500] text-[#0047C4] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#0047C4]">
+                    Read Data
+                  </span>
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <span className="bg-[#FFEFF5] font-[500] text-[#F43D6B] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#F43D6B]">
+                    User
+                  </span>
+                  <span className="bg-[#EEF8FF] font-[500] text-[#0047C4] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#0047C4]">
+                    Read Data
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>

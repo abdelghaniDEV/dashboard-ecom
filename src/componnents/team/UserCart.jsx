@@ -12,22 +12,6 @@ import { TableCell, TableRow } from "../../components/ui/table";
 import { User } from "lucide-react";
 
 function UserCart({ user, index }) {
-  console.log("user", user);
-  // if(user.role === 'admin') {
-  //     return (
-  //         <div className="flex gap-2">
-  //         <span className="bg-[#E8F8EE] font-[500] text-[#329167] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#329167]">
-  //           Admin
-  //         </span>
-  //         <span className="bg-[#F4F2FD] font-[500] text-[#5D2CE0] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#5D2CE0]">
-  //           Data Import
-  //         </span>
-  //         <span className="bg-[#EEF8FF] font-[500] text-[#0047C4] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#0047C4]">
-  //           Read Data
-  //         </span>
-  //       </div>
-  //     )
-  // }
   const dateUser = new Date(user.created_at).toDateString();
   return (
     <TableRow className="xl:text-[15px] text-[14px]">
@@ -45,7 +29,7 @@ function UserCart({ user, index }) {
           </div>
         </div>
       </TableCell>
-      <TableCell className="text-center hidden">
+      <TableCell className="text-center hidden md:table-cell">
         {user.role == "admin" ? (
           <div className="flex gap-2">
             <span className="bg-[#E8F8EE] font-[500] text-[#329167] text-[13px] py-[2px] px-[6px] border-[1.5px] rounded-[12px] border-[#329167]">
