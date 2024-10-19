@@ -8,6 +8,7 @@ import ListOrder from '../componnents/dashboard/ListOrder';
 import desShop from '../assets/undraw_Small_town_re_7mcn@4x.png'
 import desapp from '../assets/65_objects@4x.png'
 import { Button } from '../components/ui/button';
+import { Link } from 'react-router-dom';
 
 
 function Dashboard() {
@@ -42,9 +43,9 @@ function Dashboard() {
               </p>
             </div>
             <div className="">
-              <button className="text-[#e97e32] bg-white px-5 py-2  font-[600] text-[13px] rounded-[10px]">
+              <Link to={'orders'} className="text-[#e97e32] bg-white px-5 py-2  font-[600] text-[13px] rounded-[10px]">
                 View Orders{" "}
-              </button>
+              </Link>
             </div>
           </div>
           <div className='hidden lg:block'>
@@ -62,9 +63,6 @@ function Dashboard() {
              <img src={desShop} className='w-' />
              <h2 className='text-[20px] text-center font-[500] leading-[22px]'>Take your <span className='text-[#F2B78D]'>business</span> to the next <span className='text-[#F2B78D]'>Level</span></h2>
            </div>
-              {/* <div className='absolute bg-[#b58df2] h-10 w-10 rounded-full top-10 right-5' ></div>
-              <div className='absolute bg-[#a98563] h-10 w-10 rounded-full left-6 ' ></div>
-              <div className='absolute bg-[#f2b78d] h-10 w-10 rounded-full bottom-[60px] left-3' ></div> */}
               <div className='text-center'><img src={desapp} className='w-[150px]' /></div>
           <div className='pb-5'> <Button className="bg-[#A98563] hover:bg-[#a98563c6] text-[18px]"><a href='https://ecommerce-beta-ivory.vercel.app/'>Visit Your Shop</a></Button></div>
         </div>
