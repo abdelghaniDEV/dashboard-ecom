@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
 import {
   Dialog,
@@ -10,12 +10,21 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Button } from "../../components/ui/button";
 import { Link } from "react-router-dom";
 import ViewsOrder from "./ViewsOrder";
 
 function OrderCart({ order }) {
-
+  const [openDelet, setOpenDelet] = useState(false);
+  const [openView, setOpenView] = useState(false);
   const dataOrder = new Date(order.createdAt).toDateString();
   let item = 0;
   order.products.map((product) => {
@@ -36,9 +45,9 @@ function OrderCart({ order }) {
       <TableCell className="md:max-w-[120px] hidden sm:table-cell">
         {dataOrder}
       </TableCell>
-      <TableCell className="">
+      <TableCell className="hidden md:block">
         <div className="grid text-center sm:grid-cols-3 grid-cols-3 gap-1 md:grid-cols-3 md:gap-2 items-center text-[13px]">
-          <Dialog className="w-[800px]">
+          <Dialog className="w-[800px]" open={openView} onOpenChange={setOpenView} >
             <DialogTrigger className="">
               <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
               <span className="hidden md:block bg-[#b58df2] text-white rounded-[8px] p-2 text-center ">
@@ -67,7 +76,7 @@ function OrderCart({ order }) {
               Edit
             </span>
           </Link>
-          <Dialog>
+          <Dialog open={openDelet} onOpenChange={setOpenDelet}>
             <DialogTrigger className=" ">
               <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
               <span className=" bg-[#FDD8E0] hidden md:block text-[#F4164F] md:rounded-[8px]  p-2 text-center">
@@ -100,6 +109,41 @@ function OrderCart({ order }) {
             </DialogContent>
           </Dialog>
         </div>
+      </TableCell>
+      <TableCell className="md:hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <i class="bx bx-dots-vertical-rounded text-[25px] p-[2px] bg-[#F6F6F6] rounded-[4px]"></i>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-[200px] mx-4">
+            <DropdownMenuLabel className="text-ellipsis overflow-hidden whitespace-nowrap">
+              {order.name}
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => setOpenView(true)} >
+              <div  className="flex items-center gap-2 font-[500]">
+                <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[5px] text-center"></i>
+                <span>View Order</span>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="">
+              <Link
+               
+                className="flex items-center gap-2 font-[500]"
+              >
+                <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[5px] text-center"></i>
+                <span>Edit Order</span>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="flex items-center gap-2 font-[500]"
+              onClick={() => setOpenDelet(true)}
+            >
+              <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[5px] text-center"></i>
+              <span>Delete Order</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </TableCell>
     </TableRow>
   );
