@@ -53,7 +53,7 @@ function User() {
         <DropdownMenuContent className="w-[200px] mx-4">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 font-[500]">
             <DropdownMenuItem onClick={() => setOpen(false)}>
               <Link to={`profile/${user.firstName}-${user.lastName}`} className="flex gap-2 items-center ">
                 <i class="bx bx-user-circle  text-[20px]"></i>
