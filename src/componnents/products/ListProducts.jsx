@@ -10,13 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useDispatch, useSelector } from "react-redux";
-
-import axios from "axios";
-import { fetchProducts } from "../../Redux/slices/products.slice";
 import ReactPaginate from "react-paginate";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import ProductCart from "./ProductCart";
 
 function ListProducts({ products, setOpacityBody }) {
@@ -24,17 +19,6 @@ function ListProducts({ products, setOpacityBody }) {
   const [itemDelet, setItemDelet] = useState();
   const [currentPage, setCurrentPage] = useState(0);
 
-  const token = localStorage.getItem('token');
-
-  const dispatch = useDispatch();
-
-  const notify = (type , message) => {
-    if (type === "success") {
-        toast.success(message)
-    }else {
-        toast.error(message)
-    }
-  };
 
   const itemsPerPage = 10;
 
@@ -46,24 +30,7 @@ function ListProducts({ products, setOpacityBody }) {
     setCurrentPage(selected);
   };
 
-  const handleDeleteProduct = async (productId) => {
-    try {
-      const response = axios.delete(
-        `${import.meta.env.VITE_API_URL}/products/${productId}`,
-        {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-        }
-      );
-      console.log("product deleted successfully", response.data);
-      dispatch(fetchProducts());
-      notify('success' , 'product deleted successfully')
-    } catch (err) {
-      console.error("Error deleting product:", err);
-      notify('error' , 'Error deleting product')
-    }
-  };
+
 
   if (showDeletProduct === true) {
     setOpacityBody(true);
@@ -73,7 +40,6 @@ function ListProducts({ products, setOpacityBody }) {
 
   return (
     <div>
-       <ToastContainer position="bottom-left" />
       {showDeletProduct && (
         <DeletProduct
           productId={itemDelet}
@@ -98,7 +64,7 @@ function ListProducts({ products, setOpacityBody }) {
           <TableBody>
             {currentProducts.map((product, index) => {
              
-              return <ProductCart product={product} index={index} />
+              return <ProductCart product={product} key={product._id} index={index} />
             })}
           </TableBody>
         </Table>

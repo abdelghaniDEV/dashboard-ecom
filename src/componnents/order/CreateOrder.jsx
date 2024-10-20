@@ -185,9 +185,9 @@ function CreateOrder() {
     if (statusSubmit === "loading") {
       return <img src={spinner} className="w-5" />;
     } else if (statusSubmit === "success") {
-      return <i class="bx bx-check text-[20px]"></i>;
+      return <i className="bx bx-check text-[20px]"></i>;
     } else if (statusSubmit === "added") {
-      return <i class="bx bx-plus text-[20px]"></i>;
+      return <i className="bx bx-plus text-[20px]"></i>;
     }
   };
   return (
@@ -199,7 +199,7 @@ function CreateOrder() {
             to={"/dashboard/orders"}
             className="border p-2 lg:p-3 "
           >
-            <i class="bx bx-arrow-back"></i>
+            <i className="bx bx-arrow-back"></i>
           </Link>
           <div className="items-center gap-2 mt-[-5px] lg:mt-0 ">
             <span className="text-[12px]">
@@ -342,7 +342,7 @@ function CreateOrder() {
                     className="absolute right-0 top-[-4px] cursor-pointer"
                     onClick={() => handleDeleteProduct(product.product._id)}
                   >
-                    <i class="bx bx-x bg-red-400 text-white"></i>
+                    <i className="bx bx-x bg-red-400 text-white"></i>
                   </div>
                 </div>
               );

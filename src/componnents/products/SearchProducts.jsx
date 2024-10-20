@@ -37,7 +37,7 @@ function Search({setFetchProducts}) {
           className="w-full py-[6px] px-8 bg-[#EEEEEE] rounded-[8px] focus:outline-none text-[14px] focus:outline-2 focus:outline-[#F5CAAB]"
           placeholder="Search Products"
         />
-        <i class="bx bx-search text-[20px] absolute left-0 top-[18px] pl-2 "></i>
+        <i className="bx bx-search text-[20px] absolute left-0 top-[18px] pl-2 "></i>
       </div>
     </div>
   );

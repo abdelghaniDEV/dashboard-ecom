@@ -19,9 +19,42 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../../components/ui/button";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { fetchProducts } from "../../Redux/slices/products.slice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function ProductCart({ product, index }) {
   const [openDelet, setOpenDelet] = useState(false);
   const productDate = new Date(product.createdAt).toDateString();
+  const token = localStorage.getItem('token');
+
+  const dispatch = useDispatch();
+  const notify = (type , message) => {
+    if (type === "success") {
+        toast.success(message)
+    }else {
+        toast.error(message)
+    }
+  };
+  const handleDeleteProduct = async (productId) => {
+    try {
+      const response = axios.delete(
+        `${import.meta.env.VITE_API_URL}/products/${productId}`,
+        {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+        }
+      );
+      console.log("product deleted successfully", response.data);
+      dispatch(fetchProducts());
+      notify('success' , 'product deleted successfully')
+    } catch (err) {
+      console.error("Error deleting product:", err);
+      notify('error' , 'Error deleting product')
+    }
+  };
   return (
     <TableRow className="xl:text-[15px] text-[14px]">
       <TableCell className="">#{index + 1}</TableCell>
@@ -50,20 +83,20 @@ function ProductCart({ product, index }) {
             href={`https://ecommerce-safwa-github.vercel.app//product/${product._id}`}
             className=""
           >
-            <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
+            <i className="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
             <span className="hidden md:block bg-[#b58df2] text-white rounded-[8px] p-2 text-center ">
               Views
             </span>
           </a>
           <Link to={`${product._id}`} className="hidden md:block">
-            <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
+            <i className="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
             <span className="hidden md:block bg-[#76a963] text-white rounded-[8px] p-2 text-center">
               Edit
             </span>
           </Link>
           <Dialog open={openDelet} onOpenChange={setOpenDelet}>
             <DialogTrigger className="">
-              <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
+              <i className="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
               <span className=" bg-[#FDD8E0] hidden md:block text-[#F4164F] md:rounded-[8px]  p-2 text-center">
                 {" "}
                 Delete
@@ -99,7 +132,7 @@ function ProductCart({ product, index }) {
       <TableCell className="md:hidden">
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <i class="bx bx-dots-vertical-rounded text-[25px] p-[2px] bg-[#F6F6F6] rounded-[4px]"></i>
+            <i className="bx bx-dots-vertical-rounded text-[25px] p-[2px] bg-[#F6F6F6] rounded-[4px]"></i>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-[200px] mx-4">
             <DropdownMenuLabel className="text-ellipsis overflow-hidden whitespace-nowrap">
@@ -108,7 +141,7 @@ function ProductCart({ product, index }) {
             <DropdownMenuSeparator />
             <DropdownMenuItem >
               <a href={`https://ecommerce-safwa-github.vercel.app//product/${product._id}`} className="flex items-center gap-2 font-[500]">
-                <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[5px] text-center"></i>
+                <i className="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[5px] text-center"></i>
                 <span>View Product</span>
               </a>
             </DropdownMenuItem>
@@ -117,7 +150,7 @@ function ProductCart({ product, index }) {
                 to={`${product._id}`}
                 className="flex items-center gap-2 font-[500]"
               >
-                <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[5px] text-center"></i>
+                <i className="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[5px] text-center"></i>
                 <span>Edit Product</span>
               </Link>
             </DropdownMenuItem>
@@ -125,7 +158,7 @@ function ProductCart({ product, index }) {
               className="flex items-center gap-2 font-[500]"
               onClick={() => setOpenDelet(true)}
             >
-              <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[5px] text-center"></i>
+              <i className="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[5px] text-center"></i>
               <span>Delete Product</span>
             </DropdownMenuItem>
           </DropdownMenuContent>

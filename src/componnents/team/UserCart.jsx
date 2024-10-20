@@ -9,17 +9,48 @@ import {
 } from "@/components/ui/dropdown-menu";
 import userAvatar from "../../assets/FB_IMG_1705437194399.jpg";
 import { TableCell, TableRow } from "../../components/ui/table";
-import { User } from "lucide-react";
+import axios from "axios";
+import { fetchUsers } from "../../Redux/slices/users.slice";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UserCart({ user, index }) {
+  const dispatch = useDispatch();
+
   const dateUser = new Date(user.created_at).toDateString();
+
+    // toast notification
+    const notify = (type, message) => {
+      if (type === "success") {
+        toast.success(message);
+      } else {
+        toast.error(message);
+      }
+    };
+
+  const token = localStorage.getItem('token');
+  const handelDeleteUser = async (userID) => {
+    try {
+     const response =  await axios.delete(`http://localhost:4000/api/users/${userID}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      console.log("User deleted successfully:", response.data);
+      dispatch(fetchUsers())
+      notify("success", "user deleted successfully");
+    } catch (err) {
+      console.error("Error deleting user:", err);
+    }
+  }
   return (
+    <>
     <TableRow className="xl:text-[15px] text-[14px]">
       <TableCell>{index + 1}</TableCell>
       <TableCell className="md:w-[400px]">
         <div className="flex items-center gap-2">
           <div>
-            <img src={userAvatar} className="w-10 h-10 rounded-full" />
+            <img src={user.image ? user.image : userAvatar} className="w-10 h-10 rounded-full" />
           </div>
           <div className="flex flex-col ">
             <span className="font-[500] leading-3 ">
@@ -74,7 +105,7 @@ function UserCart({ user, index }) {
               <i class="bx bxs-key text-[20px]"></i>
               <span>Change Password</span>
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex items-center gap-2 font-[500]">
+            <DropdownMenuItem className="flex items-center gap-2 font-[500]" onClick={() => handelDeleteUser(user._id)}>
               <i class="bx bx-trash text-[20px]"></i>
               <span>Delete User</span>
             </DropdownMenuItem>
@@ -82,6 +113,8 @@ function UserCart({ user, index }) {
         </DropdownMenu>
       </TableCell>
     </TableRow>
+    <ToastContainer position="bottom-left" />
+    </>
   );
 }
 

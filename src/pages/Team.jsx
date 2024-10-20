@@ -1,6 +1,7 @@
 import React from "react";
 import ListTeam from "../componnents/team/ListTeam";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Team() {
     const users = useSelector((state) => state.users)
@@ -21,9 +22,9 @@ function Team() {
           {/* <DatePickerDemo setRangeDate={setRangeDate} /> */}
           <div className="bg-[#F5CAAB] px-2 md:p-2 py-2  rounded-[20px] flex items-center gap-1">
             <i class="bx bx-plus md:text-[20px]"></i>
-            <span to={"create-product"} className="text-[13px] font-[500]">
+            <Link to={"create-user"} className="text-[13px] font-[500]">
               Create user
-            </span>
+            </Link>
           </div>
         </div>
       </div>

@@ -32,6 +32,7 @@ import CreateOrder from "./componnents/order/CreateOrder";
 import Profile from "./componnents/profile/Profile";
 import Team from "./pages/Team";
 import { fetchUsers } from "./Redux/slices/users.slice";
+import CreateUser from "./componnents/team/CreateUser";
 
 
 const ProtectedRoute = ({ children }) => {
@@ -117,6 +118,7 @@ const App = () => {
                       />
                       <Route path='profile/:userName' element={<Profile />} />
                       <Route path='team' element={<Team />} />
+                      <Route path="team/create-user" element={<CreateUser />} />
                     </Routes>
                   </div>
                 </div>

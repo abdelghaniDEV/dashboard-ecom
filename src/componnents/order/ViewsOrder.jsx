@@ -2,7 +2,6 @@ import React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 function ViewsOrder({ order }) {
-  console.log(order);
   return (
     <div className="text-black flex flex-col gap-4 md:mt-4 mt-2">
       <div className="flex flex-col md:gap-4 ">
@@ -13,7 +12,7 @@ function ViewsOrder({ order }) {
             {order.products.map((product) => {
               
               return (
-                <div className="flex justify-between gap-[40px] items-center border-b-[1px] py-[3px]  ">
+                <div key={product._id} className="flex justify-between gap-[40px] items-center border-b-[1px] py-[3px]  ">
                   <div className="flex items-center  gap-2">
                     <div>
                       <img
@@ -75,26 +74,26 @@ function ViewsOrder({ order }) {
         <div className="border p-2 rounded-[10px]">
           <h2 className="md:text-[18px] font-semibold text-[15px] pb-1">Custemer :</h2>
           <div className="flex items-center gap-2 text-[13px] md:text-[16px]">
-            <i class="bx bx-user text-[#a98563]"></i>
+            <i className="bx bx-user text-[#a98563]"></i>
             <span>{order.name}</span>
           </div>
           <div className="flex items-center gap-2 text-[13px] md:text-[16px]">
-            <i class="bx bx-shopping-bag text-[#a98563]"></i>
+            <i className="bx bx-shopping-bag text-[#a98563]"></i>
             <span>1 Order</span>
           </div>
           <div className="flex items-center gap-2 text-[13px]  md:text-[16px]">
-            <i class="bx bx-envelope text-[#a98563]"></i>
+            <i className="bx bx-envelope text-[#a98563]"></i>
             <span>{order.email}</span>
           </div>
         </div>
         <div className="border p-2 rounded-[10px]">
           <h2 className="md:text-[18px] text-[15px] font-semibold pb-1">Shipping Address :</h2>
           <div className="flex items-center gap-2  text-[13px] md:text-[16px]">
-            <i class="bx bx-current-location text-[#a98563]"></i>
+            <i className="bx bx-current-location text-[#a98563]"></i>
             <span>{order.address}</span>
           </div>
           <div className="flex items-center gap-2  text-[13px] md:text-[16px]">
-            <i class="bx bxs-edit-location text-[#a98563]"></i>
+            <i className="bx bxs-edit-location text-[#a98563]"></i>
             <span>{order.zipCode}</span>
           </div>
         </div>

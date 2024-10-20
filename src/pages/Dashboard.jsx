@@ -14,7 +14,6 @@ import { Link } from 'react-router-dom';
 function Dashboard() {
   const products = useSelector((state) => state.products);
   const token = localStorage.getItem('token')
-  console.log(token)
 
   return (
     <div className="lg:flex gap-3">

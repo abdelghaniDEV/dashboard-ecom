@@ -28,14 +28,14 @@ function SideBar({ setShowSidebar, showSidebar }) {
           <div className="flex md:justify-center">
             <img
               src={logo}
-              className="w-[80px] h-[30px] md:w-[110px]"
+              className="w-[80px] h-[30px] md:w-[110px] md:h-[40px]"
               alt="Logo"
             />
             <i className="bx bxs-color text-[#F5CAAB] "></i>
           </div>
           <div>
             <i
-              class="bx bx-x text-[30px] bg-[#F5CAAB] rounded-full md:hidden"
+              className="bx bx-x text-[30px] bg-[#F5CAAB] rounded-full md:hidden"
               onClick={() => setShowSidebar(false)}
             ></i>
           </div>
@@ -46,7 +46,7 @@ function SideBar({ setShowSidebar, showSidebar }) {
             GENERAL
           </span>
           <div className="mt-2 mx-6">
-            <ul className="md:text-[15px] text-[18px] text-[#8AA1A3] flex flex-col md:gap-4">
+            <ul className="md:text-[15px] text-[18px] text-[#8AA1A3] flex flex-col md:gap-2">
               <Link
                 to={"/dashboard"}
                 className="flex items-center gap-2 rounded-[8px] p-2 "
@@ -88,23 +88,23 @@ function SideBar({ setShowSidebar, showSidebar }) {
         {/* setting */}
         <div className="pt-2">
           <span className="text-[10px] px-4 font-[500] text-[#CCD8D9]">
-            SETING
+            SETTING
           </span>
           <div className="mt-2 mx-6">
-            <ul className="md:text-[15px] text-[18px] text-[#8AA1A3] flex flex-col md:gap-4">
+            <ul className="md:text-[15px] text-[18px] text-[#8AA1A3] flex flex-col md:gap-2">
               <Link
                 to={`/dashboard/profile/${user.firstName}-${user.lastName}`}
                 className="flex items-center gap-2 rounded-[8px] p-2 " 
                 onClick={() => setShowSidebar(false)} 
               >
-               <i class="bx bx-user-circle text-[20px]"></i>Profile
+               <i className="bx bx-user-circle text-[20px]"></i>Profile
               </Link>
               <Link
                 to={`/dashboard/team`}
                 className="flex items-center gap-2 rounded-[8px] p-2 " 
                 onClick={() => setShowSidebar(false)} 
               >
-               <i class='bx bx-user text-[20px]'></i>Our Team
+               <i className='bx bx-user text-[20px]'></i>Our Team
               </Link>
             </ul>
           </div>

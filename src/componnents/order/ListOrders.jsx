@@ -17,21 +17,13 @@ import { Link } from "react-router-dom";
 import { data } from "autoprefixer";
 import ViewsOrder from "./ViewsOrder";
 import ReactPaginate from "react-paginate";
-import { ToastContainer, toast } from "react-toastify";
+
 import OrderCart from "./OrderCart";
 
 function ListOrders({ orders }) {
   const [currentPage, setCurrentPage] = useState(0);
-  const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
 
-  const notify = (type, message) => {
-    if (type === "success") {
-      toast.success(message);
-    } else {
-      toast.error(message);
-    }
-  };
+
 
   const itemsPerPage = 10;
 
@@ -43,32 +35,10 @@ function ListOrders({ orders }) {
     setCurrentPage(selected);
   };
 
-  const handleDeleteOrder = async (orderID) => {
-    try {
-      // delete the order from the database
-      const response = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/orders/${orderID}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log("Order deleted successfully:", response.data);
-      
-      notify("success", "Order deleted successfully");
-      dispatch(fetchOrders());
-    } catch (err) {
-      console.error("Error deleting order:", err);
-      notify("error", err.response.data.message);
-    }
-  };
-
-
 
   return (
     <div className="mt-3">
-      <ToastContainer position="bottom-left" />
+      
       <Table className="border">
         <TableHeader className="bg-[#F9F9F9]">
           <TableRow className="md:text-[16px] text-center text-[13px]">

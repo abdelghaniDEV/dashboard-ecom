@@ -55,8 +55,8 @@ function CreateCate() {
 
       formData.append("name", name);
       formData.append("description", description);
-      formData.append("image", image);
-
+      formData.append("image", image)
+      
       try {
         setUploadingAdd(true);
         const response = await axios.post(

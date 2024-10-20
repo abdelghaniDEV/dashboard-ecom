@@ -95,11 +95,11 @@ function Products({setOpacityBody}) {
         <div className="flex justify-end gap-1 md:gap-3">
           {/* <DatePickerDemo setRangeDate={setRangeDate} /> */}
           <div onClick={filterProducts} className=" cursor-pointer border-2 border-[#F5CAAB] p-1 md:p-2 lg:py-[6px] rounded-[20px] flex items-center bg-[#f5caab6c] gap-2 text-[#c97d47]">
-          <i class='bx bx-filter-alt md:text-[20px]'></i>
+          <i className='bx bx-filter-alt md:text-[20px]'></i>
             <span className="text-[13px] font-[500]">Filter</span>
           </div>
           <div className="bg-[#F5CAAB] px-1 md:p-2 lg:py-1  rounded-[20px] flex items-center gap-1">
-            <i class="bx bx-plus md:text-[20px]"></i>
+            <i className="bx bx-plus md:text-[20px]"></i>
             <Link to={'create-product'} className="text-[13px] font-[500]">Create Product</Link>
           </div>
         </div>

@@ -41,7 +41,6 @@ function EditOrder() {
   };
 
   const prams = useParams();
-  console.log(prams.orderID);
   useEffect(() => {
     const order = orders.find((p) => p._id === prams.orderID);
     if (order) {
@@ -51,7 +50,6 @@ function EditOrder() {
       setZipCode(order.zipCode);
       setProductsSelector(order.products);
     }
-    console.log("order", order);
   }, []);
 
   const handleAddProduct = () => {
@@ -63,11 +61,6 @@ function EditOrder() {
     setProductSelector();
     setQuantity(1);
   };
-
-  useEffect(() => {
-    console.log("adress", adress);
-    console.log("ZipCode", ZipCode);
-  }, [ZipCode, adress]);
 
   const handleDeleteProduct = (productID) => {
     const updatedProducts = productsSelector.filter(
@@ -125,9 +118,9 @@ function EditOrder() {
     if (statusSubmit === "loading") {
       return <img src={spinner} className="w-5" />;
     } else if (statusSubmit === "success") {
-      return <i class="bx bx-check text-[20px]"></i>;
+      return <i className="bx bx-check text-[20px]"></i>;
     } else if (statusSubmit === "edit") {
-      return <i class="bx bx-plus text-[20px]"></i>;
+      return <i className="bx bx-plus text-[20px]"></i>;
     }
   };
 
@@ -137,7 +130,7 @@ function EditOrder() {
       <div className=" lg:flex justify-between items-center mb-4 ">
         <div className="flex items-start gap-1 md:gap-2 pb-3 lg:pb-0 ">
           <Link to={"/dashboard/orders"} className="border p-2 md:p-3  ">
-            <i class="bx bx-arrow-back"></i>
+            <i className="bx bx-arrow-back"></i>
           </Link>
           <div className=" items-center gap-2 mt-[-5px] lg:mt-0 ">
             {/* <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i> */}
@@ -266,7 +259,7 @@ function EditOrder() {
                     className="absolute right-0 top-[-4px] cursor-pointer"
                     onClick={() => handleDeleteProduct(product.product._id)}
                   >
-                    <i class="bx bx-x bg-red-400 text-white"></i>
+                    <i className="bx bx-x bg-red-400 text-white"></i>
                   </div>
                 </div>
               );
