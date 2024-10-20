@@ -32,7 +32,7 @@ function UserCart({ user, index }) {
   const token = localStorage.getItem('token');
   const handelDeleteUser = async (userID) => {
     try {
-     const response =  await axios.delete(`http://localhost:4000/api/users/${userID}`, {
+     const response =  await axios.delete(`${import.meta.env.VITE_API_URL}/users/${userID}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
