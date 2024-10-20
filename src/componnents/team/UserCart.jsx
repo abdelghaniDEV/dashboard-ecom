@@ -41,6 +41,7 @@ function UserCart({ user, index }) {
       notify("success", "user deleted successfully");
     } catch (err) {
       console.error("Error deleting user:", err);
+      notify("error", err.response.data.message);
     }
   }
   return (
