@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
@@ -24,10 +24,25 @@ import { fetchCustomer } from "../../Redux/slices/customers.slice";
 import CustomerDetails from "./CustomerDetails";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import ReactPaginate from "react-paginate";
 
 function ListCustomers({ customers }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+
+
+  const itemsPerPage = 10;
+
+  const offset = currentPage * itemsPerPage;
+  const currentOrders = customers.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(customers.length / itemsPerPage);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
     // toast notification
     const notify = (type, message) => {
       if (type === "success") {
@@ -73,7 +88,7 @@ function ListCustomers({ customers }) {
         </TableHeader>
         <TableBody className="text-[15px]">
           {/* Add your customers data here */}
-          {customers.map((customer, index) => {
+          {currentOrders.map((customer, index) => {
             const dateCustomer = new Date(customer.createdAt).toDateString();
             return (
               <TableRow className="xl:text-[15px] text-[15px]">
@@ -134,6 +149,26 @@ function ListCustomers({ customers }) {
           {/* Add more customers here */}
         </TableBody>
       </Table>
+      <div>
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={"flex justify-center md:justify-end items-center mt-4 space-x-2 "}
+          pageClassName={
+            "px-3 py-1 border rounded hover:bg-[#b58df2] hover:text-white"
+          }
+          previousClassName={"px-3 py-1 border rounded"}
+          nextClassName={"px-3 py-1 border rounded"}
+          breakClassName={"px-3 py-1"}
+          activeClassName={"bg-[#b58df2] text-white"}
+          disabledClassName={"opacity-50 cursor-not-allowed"}
+        />
+      </div>
     </div>
   );
 }
