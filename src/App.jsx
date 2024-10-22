@@ -73,7 +73,7 @@ const App = () => {
               <div className="flex">
                 <SideBar setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
                 <div className="w-[100%]">
-                  <Header setShowSidebar={setShowSidebar} />
+                  <Header setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
                   <div className="mt-2 mx-2 md:mx-4 lg:mx-8">
                     <Routes>
                       <Route path="" element={<Dashboard />} />
