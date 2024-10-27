@@ -31,6 +31,7 @@ import { fetchSingleUser } from "./Redux/slices/userSingle.slice";
 import CreateOrder from "./componnents/order/CreateOrder";
 import Profile from "./componnents/profile/Profile";
 import Team from "./pages/Team";
+import ProfileUser from "./componnents/team/ProfileUser"
 import { fetchUsers } from "./Redux/slices/users.slice";
 import CreateUser from "./componnents/team/CreateUser";
 
@@ -49,7 +50,7 @@ const App = () => {
   useEffect(() => {
     
       // Fetch data if user is authenticated
-      console.log('fetch data by app js')
+      
       dispatch(fetchProducts());
       dispatch(fetchCategories());
       dispatch(fetchOrders());
@@ -119,6 +120,7 @@ const App = () => {
                       <Route path='profile/:userName' element={<Profile />} />
                       <Route path='team' element={<Team />} />
                       <Route path="team/create-user" element={<CreateUser />} />
+                      <Route path="team/:userID" element={<ProfileUser />} />
                     </Routes>
                   </div>
                 </div>

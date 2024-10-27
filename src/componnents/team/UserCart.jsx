@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,8 +14,11 @@ import { fetchUsers } from "../../Redux/slices/users.slice";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
+import ChangePassword from "./ChangePassword";
 
 function UserCart({ user, index }) {
+  const [openChangePassword, setOpenChangePassword] = useState(false);
   const dispatch = useDispatch();
 
   const dateUser = new Date(user.created_at).toDateString();
@@ -46,6 +49,7 @@ function UserCart({ user, index }) {
   }
   return (
     <>
+    <ChangePassword userID={user._id} openChangePassword={openChangePassword} setOpenChangePassword={setOpenChangePassword}/>
     <TableRow className="xl:text-[15px] text-[14px]">
       <TableCell>{index + 1}</TableCell>
       <TableCell className="md:w-[400px]">
@@ -94,15 +98,17 @@ function UserCart({ user, index }) {
           <DropdownMenuContent className="w-[200px] mx-4">
             <DropdownMenuLabel>{user.firstName} {user.lastName}</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="flex items-center gap-2 font-[500]">
+            <DropdownMenuItem className="">
+              <Link to={`${user._id}`} className="flex items-center gap-2 font-[500]">
               <i class="bx bx-user text-[20px]"></i>
               <span>View Profile</span>
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="flex items-center gap-2 font-[500]">
               <i class="bx bx-edit-alt text-[20px]"></i>
               <span>Edit Profile</span>
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex items-center gap-2 font-[500]">
+            <DropdownMenuItem className="flex items-center gap-2 font-[500]" onClick={() => setOpenChangePassword(true)}>
               <i class="bx bxs-key text-[20px]"></i>
               <span>Change Password</span>
             </DropdownMenuItem>
@@ -114,7 +120,9 @@ function UserCart({ user, index }) {
         </DropdownMenu>
       </TableCell>
     </TableRow>
+    
     <ToastContainer position="bottom-left" />
+    
     </>
   );
 }

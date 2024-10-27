@@ -235,9 +235,9 @@ export function CategoryChart() {
           </button>
         </div>
         <div className="flex flex-wrap justify-center gap-2 items-center text-center pt-4">
-          {chartData.map((category) => {
+          {chartData.map((category , index) => {
             return (
-              <div className="flex gap-1 items-center">
+              <div className="flex gap-1 items-center" key={index}>
                 <div
                   className="h-4 w-4"
                   style={{

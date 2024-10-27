@@ -94,10 +94,10 @@ function OrderCart({ order }) {
               </DialogTrigger>
               <DialogContent className="md:p-3 p-1">
                 <DialogHeader>
-                  <DialogTitle className="text-start">
-                    <h1 className="md:text-[25px] text-[18px] mb-1 md:mb-2 ">
+                  <DialogTitle className="flex flex-col">
+                    <span className="md:text-[25px] text-[18px] mb-1 md:mb-2 ">
                       Order ID: {order.invoiceNumber}
-                    </h1>
+                    </span>
                     <span className="md:text-[14px] text-[10px] bg-[#a9f28d] py-1 px-2  rounded-[20px] font-medium">
                       {dataOrder}
                     </span>
@@ -132,16 +132,16 @@ function OrderCart({ order }) {
                   </p>
                 </div>
                 <DialogFooter className="sm:justify-start  ">
-                  <DialogClose className="flex gap-4 justify-center">
-                    <Button type="button" variant="secondary">
+                  <DialogClose className="flex gap-4 items-center justify-center">
+                    <span className="py-2 px-4 font-[500] text-sm bg-violet-50 text-[black] rounded-[8px] text-center " >
                       Close
-                    </Button>
-                    <Button
+                    </span>
+                    <span
                       onClick={() => handleDeleteOrder(order._id)}
-                      className="bg-[#FDD8E0] text-[#F4164F] rounded-[8px] text-center hover:bg-[#FDD8E0]"
+                      className="bg-[#FDD8E0] px-4 py-2 font-[500] text-sm text-[#F4164F] rounded-[8px] text-center hover:bg-[#FDD8E0]"
                     >
                       Delete
-                    </Button>
+                    </span>
                   </DialogClose>
                 </DialogFooter>
               </DialogContent>

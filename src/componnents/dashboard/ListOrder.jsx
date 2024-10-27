@@ -55,7 +55,7 @@ function ListOrder() {
                       <TableCell>#{order.invoiceNumber}</TableCell>
                       <TableCell className="flex gap-[6px] items-center">
                          {order.products.map((product) => {
-                            return <img src={product.product?.image[0]} className="w-10 h-10 rounded-full"
+                            return <img src={product.product?.image[0]} key={product._id} className="w-10 h-10 rounded-full"
                              />
                          })}
                       </TableCell>

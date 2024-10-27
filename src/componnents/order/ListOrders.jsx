@@ -54,7 +54,7 @@ function ListOrders({ orders }) {
         </TableHeader>
         <TableBody>
           {currentOrders.map((order) => {
-            return <OrderCart order={order} />
+            return <OrderCart order={order} key={order._id} />
           })}
         </TableBody>
       </Table>

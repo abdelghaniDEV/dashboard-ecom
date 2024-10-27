@@ -154,12 +154,12 @@ function Barchart() {
             <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4  shadow-md bg-box-total-products  text-white">
               <h3 className="text-[14px]">Total Products</h3>
               <div className="flex gap-[7px]">
-                <i class="bx bx-category-alt text-[20px]"></i>
-                <i class="bx bx-category-alt text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D] lg:hidden"></i>
+                <i className="bx bx-category-alt text-[20px]"></i>
+                <i className="bx bx-category-alt text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D] lg:hidden"></i>
                 <h1 className="text-[30px] font-[600]">{totalProducts}</h1>
               </div>
               <div className="flex items-center">
-                <i class="bx bxs-chevrons-up text-[#8BE78B]"></i>
+                <i className="bx bxs-chevrons-up text-[#8BE78B]"></i>
                 <h3 className="text-[14px]">
                   <span className="text-[#8BE78B] font-[600]">+35 %</span> from
                   last month
@@ -174,7 +174,7 @@ function Barchart() {
                 <h1 className="text-[30px] font-[600]">{totalRevenue}</h1>
               </div>
               <div className="flex items-center">
-                <i class="bx bxs-chevrons-up text-[#8BE78B]"></i>
+                <i className="bx bxs-chevrons-up text-[#8BE78B]"></i>
                 <h3 className="text-[14px]">
                   <span className="text-[#8BE78B] font-[600]">+35 %</span> from
                   last month
@@ -184,12 +184,12 @@ function Barchart() {
             <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] p-4 shadow-md md:bg-[#f2b78d] bg-box-total-orders">
               <h3 className="text-[14px]">Total Orders</h3>
               <div className="flex gap-[7px]">
-                <i class="bx bx-shopping-bag text-[20px]"></i>
-                <i class="bx bx-shopping-bag text-[150px] absolute top-3 right-[-40px] text-[#F2B78D] lg:hidden"></i>
+                <i className="bx bx-shopping-bag text-[20px]"></i>
+                <i className="bx bx-shopping-bag text-[150px] absolute top-3 right-[-40px] text-[#F2B78D] lg:hidden"></i>
                 <h1 className="text-[30px] font-[600]">{totalOrders}</h1>
               </div>
               <div className="flex items-center">
-                <i class="bx bxs-chevrons-down text-[#821f1f]"></i>
+                <i className="bx bxs-chevrons-down text-[#821f1f]"></i>
                 <h3 className="text-[14px]">
                   <span className="text-[#821f1f] font-[600]">+35 %</span> from
                   last month
