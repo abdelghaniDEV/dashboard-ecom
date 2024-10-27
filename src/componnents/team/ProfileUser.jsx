@@ -23,9 +23,11 @@ import Access from "../Access";
 
 function ProfileUser() {
   const users = useSelector((state) => state.users);
+  const singleUsers = useSelector((state) => state.signleUser)
   const [openChangePassword, setOpenChangePassword] = useState(false);
   const prams = useParams();
   const [user, setUser] = useState();
+
 
   useEffect(() => {
     const singleUser = users.find((user) => user._id === prams.userID);
@@ -174,7 +176,7 @@ function ProfileUser() {
           </div>
         </div>
       </div>
-      {user?.role === 'user' ? <Access /> : <div>
+      {singleUsers.role === 'user' ? <Access /> : <div>
         {/* image */}
         <div className="flex  items-center gap-5 bg-[#F9F9F9] rounded-[8px] p-3">
           <div>
