@@ -112,6 +112,7 @@ function SideBar({ setShowSidebar, showSidebar }) {
                 onClick={() => setShowSidebar(false)} 
               >
                <i class='bx bx-cog text-[20px]'></i>Setting
+               <span className="text-[8px] p-1 rounded-full text-white bg-[#b58df2]">New</span>
               </Link>
             </ul>
           </div>
