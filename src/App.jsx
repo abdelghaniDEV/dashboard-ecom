@@ -1,5 +1,4 @@
-
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "./App.css";
 import SideBar from "./componnents/SideBar";
 import Header from "./componnents/Header";
@@ -31,10 +30,11 @@ import { fetchSingleUser } from "./Redux/slices/userSingle.slice";
 import CreateOrder from "./componnents/order/CreateOrder";
 import Profile from "./componnents/profile/Profile";
 import Team from "./pages/Team";
-import ProfileUser from "./componnents/team/ProfileUser"
+import ProfileUser from "./componnents/team/ProfileUser";
 import { fetchUsers } from "./Redux/slices/users.slice";
 import CreateUser from "./componnents/team/CreateUser";
-
+import OrderDetails from "./componnents/order/OrderDetails";
+import Setting from "./pages/Setting";
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -42,25 +42,28 @@ const ProtectedRoute = ({ children }) => {
 };
 
 const App = () => {
-  const user = useSelector((state) => state.signleUser)
+  const user = useSelector((state) => state.signleUser);
   const [opacityBody, setOpacityBody] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false);
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
+
+  const { pathname } = useLocation();
   useEffect(() => {
-    
-      // Fetch data if user is authenticated
-      
-      dispatch(fetchProducts());
-      dispatch(fetchCategories());
-      dispatch(fetchOrders());
-      dispatch(fetchCustomer());
-      dispatch(fetchAnalyticByMonth());
-      dispatch(fetchAnalyticOrders());
-      dispatch(fetchUsers())
+    // Scroll to top on pathname change
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  useEffect(() => {
+    // Fetch data if user is authenticated
+
+    dispatch(fetchProducts());
+    dispatch(fetchCategories());
+    dispatch(fetchOrders());
+    dispatch(fetchCustomer());
+    dispatch(fetchAnalyticByMonth());
+    dispatch(fetchAnalyticOrders());
+    dispatch(fetchUsers());
   }, []);
-
-
 
   return (
     <div className="app-container">
@@ -72,9 +75,15 @@ const App = () => {
           element={
             <ProtectedRoute>
               <div className="flex">
-                <SideBar setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
+                <SideBar
+                  setShowSidebar={setShowSidebar}
+                  showSidebar={showSidebar}
+                />
                 <div className="w-[100%]">
-                  <Header setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
+                  <Header
+                    setShowSidebar={setShowSidebar}
+                    showSidebar={showSidebar}
+                  />
                   <div className="mt-2 mx-2 md:mx-4 lg:mx-8">
                     <Routes>
                       <Route path="" element={<Dashboard />} />
@@ -110,28 +119,28 @@ const App = () => {
                       <Route path="orders/:orderID" element={<EditOrder />} />
                       <Route
                         path="orders/views/:orderID"
-                        element={<ViewsOrder />}
+                        element={<OrderDetails />}
                       />
                       <Route path="customers" element={<Customers />} />
                       <Route
                         path="customers/:customerID"
                         element={<CustomerDetails />}
                       />
-                      <Route path='profile/:userName' element={<Profile />} />
-                      <Route path='team' element={<Team />} />
+                      <Route path="profile/:userName" element={<Profile />} />
+                      <Route path="team" element={<Team />} />
                       <Route path="team/create-user" element={<CreateUser />} />
                       <Route path="team/:userID" element={<ProfileUser />} />
+                      <Route path="setting" element={<Setting />}/>
                     </Routes>
                   </div>
                 </div>
               </div>
-              </ProtectedRoute>
+            </ProtectedRoute>
           }
         />
       </Routes>
     </div>
   );
 };
-
 
 export default App;
