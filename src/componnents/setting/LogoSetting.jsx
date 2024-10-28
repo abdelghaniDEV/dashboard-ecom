@@ -48,7 +48,7 @@ function LogoSetting() {
           />
           <i
             class="bx bx-trash-alt absolute m-2 border-[2px] p-2 rounded-full right-0 cursor-pointer"
-            onClick={() => setLogo()}
+            onClick={() => setIcon()}
           ></i>
         </div>
         <label className="flex w-full h-10 px-2 gap-3 bg-[#F5CAAB] rounded-[8px] shadow  text-[16px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">
