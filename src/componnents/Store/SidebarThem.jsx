@@ -5,7 +5,7 @@ function SidebarThem({setShowPage}) {
   return (
     <div className="">
       <div>
-        <div className=" px-5 pt-5 md:p-3">
+        <div className=" px-4 pt-5 md:p-3">
           <ul className="grid grid-cols-2 md:grid-cols-4   text-[#a8a8a8] gap-3 md:gap-5 justify-center">
           <li className="flex gap-2 items-center text-[#e4823c]" onClick={() => setShowPage("HomePage")}>
               <i class="bx bx-home text-[20px] md:text-[25px]"></i>
