@@ -14,7 +14,7 @@ function Store() {
   return (
     <div>
       <div className=" lg:flex justify-between items-center mb-5 cursor-pointer  ">
-        <div className="flex gap-10 pb-4 lg:pb-0 items-center  ">
+        <div className="lg:flex gap-10 pb-4 lg:pb-0 items-center  ">
           <h1 className="text-[30px] lg:text-[35px] font-[600] leading-4 ">
             Store template
           </h1>
