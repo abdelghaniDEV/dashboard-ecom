@@ -2,7 +2,6 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "./App.css";
 import SideBar from "./componnents/SideBar";
 import Header from "./componnents/Header";
-// import { Route, Routes } from "react-router";
 import { fetchProducts } from "./Redux/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
 import Products from "./pages/Products";
@@ -35,6 +34,10 @@ import { fetchUsers } from "./Redux/slices/users.slice";
 import CreateUser from "./componnents/team/CreateUser";
 import OrderDetails from "./componnents/order/OrderDetails";
 import Setting from "./pages/Setting";
+import Store from "./pages/Store";
+import { fetchSetingAll } from "./Redux/slices/settingAll.slice";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -63,10 +66,18 @@ const App = () => {
     dispatch(fetchAnalyticByMonth());
     dispatch(fetchAnalyticOrders());
     dispatch(fetchUsers());
+    dispatch(fetchSetingAll())
   }, []);
 
+  const settingAll = useSelector((state) => state.settingAll)
+
   return (
+    <HelmetProvider>
     <div className="app-container">
+     <Helmet>
+        <title>{`Dashboard ${settingAll.storeName}`}</title>
+        <meta name="description" content={settingAll.storeDescription}/>
+      </Helmet>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
@@ -131,6 +142,7 @@ const App = () => {
                       <Route path="team/create-user" element={<CreateUser />} />
                       <Route path="team/:userID" element={<ProfileUser />} />
                       <Route path="setting" element={<Setting />}/>
+                      <Route path="store" element={<Store />}/>
                     </Routes>
                   </div>
                 </div>
@@ -140,6 +152,7 @@ const App = () => {
         />
       </Routes>
     </div>
+    </HelmetProvider>
   );
 };
 

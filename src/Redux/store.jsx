@@ -7,6 +7,7 @@ import analyticByMonthSlice from "./slices/anlytic.slice"
 import AnalyticOrdersSlice from "./slices/analyticCategory.jsx"
 import userSingleSlice from "./slices/userSingle.slice.jsx"
 import usersSlice from "./slices/users.slice"
+import settingAllSlice from "./slices/settingAll.slice"
 export const store = configureStore({
     reducer : {
         products : productsSlice,
@@ -16,7 +17,8 @@ export const store = configureStore({
         analyticByMonth : analyticByMonthSlice,
         analyticOrders : AnalyticOrdersSlice,
         signleUser : userSingleSlice,
-        users : usersSlice
+        users : usersSlice,
+        settingAll : settingAllSlice,
 
     }
 })

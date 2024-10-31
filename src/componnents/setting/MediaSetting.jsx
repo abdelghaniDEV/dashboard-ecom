@@ -4,7 +4,7 @@ import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import xLogo from "../../assets/X-Logo.png"
 
-function MediaSetting() {
+function MediaSetting({facebookLink , setFacebookLink , twitterLink , setTwitterLink , instagramLink , setInstagramLink , tiktokLink , setTiktokLink }) {
   return (
     <div className="flex flex-col gap-3 py-1 ">
       <div className="flex gap-1 items-center">
@@ -24,6 +24,8 @@ function MediaSetting() {
           <Input
             type="text"
             placeholder="facebook of store"
+            value={facebookLink || ' '}
+            onChange={(e) => setFacebookLink(e.target.value)}
             className=" border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px] "
           />
         </div>
@@ -35,6 +37,8 @@ function MediaSetting() {
           <Input
             type="text"
             placeholder="instagram of store"
+            value={instagramLink || ' '}
+            onChange={(e) => setInstagramLink(e.target.value)}
             className=" border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px] "
           />
         </div>
@@ -44,8 +48,10 @@ function MediaSetting() {
              <span>Tik Tok</span>
           </Label>
           <Input
-            type="number"
+            type="text"
             placeholder="tik tok of store"
+            value={tiktokLink || ' '}
+            onChange={(e) => setTiktokLink(e.target.value)}
             className=" border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px] "
           />
         </div>
@@ -58,6 +64,8 @@ function MediaSetting() {
           <Input
             type="text"
             placeholder="x (twitter) of store"
+            value={twitterLink || ' '}
+            onChange={(e) => setTwitterLink(e.target.value)}
             className=" border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px] "
           />
         </div>

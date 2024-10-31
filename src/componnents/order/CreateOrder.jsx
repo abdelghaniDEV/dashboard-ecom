@@ -146,7 +146,6 @@ function CreateOrder() {
         totalPrice: totalPrice,
       };
 
-      console.log(productsSelector);
 
       try {
         // simulate API call

@@ -20,7 +20,7 @@ function SideBar({ setShowSidebar, showSidebar }) {
   return (
     <div
       id="sidebar"
-      className="md:w-[250px] w-full bg-[#F9F9F9] md:h-[240vh] fixed md:relative z-[2000] md:z-[0] h-full hidden lg:block"
+      className="md:w-[250px] w-full bg-[#F9F9F9] md:h-[350vh] fixed md:relative z-[2000] md:z-[0] h-full hidden lg:block"
     >
       <div className="flex flex-col md:justify-center pt-4">
         {/* logo */}
@@ -111,7 +111,15 @@ function SideBar({ setShowSidebar, showSidebar }) {
                 className="flex items-center gap-2 rounded-[8px] p-2 " 
                 onClick={() => setShowSidebar(false)} 
               >
-               <i class='bx bx-cog text-[20px]'></i>Setting
+               <i className='bx bx-cog text-[20px]'></i>Setting
+               <span className="text-[8px] p-1 rounded-full text-white bg-[#b58df2]">New</span>
+              </Link>
+              <Link
+                to={`/dashboard/store`}
+                className="flex items-center gap-2 rounded-[8px] p-2 " 
+                onClick={() => setShowSidebar(false)} 
+              >
+               <i className='bx bx-store text-[20px]'></i>Store
                <span className="text-[8px] p-1 rounded-full text-white bg-[#b58df2]">New</span>
               </Link>
             </ul>
