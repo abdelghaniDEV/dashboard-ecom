@@ -71,7 +71,7 @@ function BannerDesighn({ data, setData }) {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-5 items-start">
+          <div className="grid md:grid-cols-2 gap-5 items-start">
             <div>
               {/* <Card className="p-2 flex items-center gap-2 border-[1px] border-blue-400">
                 <i className="bx bxs-info-circle text-blue-400 text-[24px]"></i>

@@ -39,7 +39,7 @@ function HeroDesighn({data , setData}) {
     <div>
       <div className=" flex flex-col gap-3  bg-[#F9F9F9] p-2 md:p-5 rounded-[10px] ">
         <h2 className="text-[20px] font-[600]">Hero</h2>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           <div className="flex flex-col  gap-3">
             <div className="flex flex-col gap-1">
               <Label className="text-[15px] font-[500] text-[#474B4F]">

@@ -7,7 +7,7 @@ const token = localStorage.getItem("token")
 export const fetchTemplate = createAsyncThunk("templateSlice/fetchTemplate", async () => {
 
     try {
-        const response = await axios.get(`http://localhost:4000/api/template`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/template`, {
             headers: {
                 Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
               },
