@@ -20,7 +20,7 @@ function SideBar({ setShowSidebar, showSidebar }) {
   return (
     <div
       id="sidebar"
-      className="md:w-[250px] w-full bg-[#F9F9F9] md:h-[350vh] fixed md:relative z-[2000] md:z-[0] h-full hidden lg:block"
+      className="md:w-[250px] w-full bg-[#F9F9F9] md:h-[300vh] fixed md:relative z-[2000] md:z-[0] h-full hidden lg:block"
     >
       <div className="flex flex-col md:justify-center pt-4">
         {/* logo */}

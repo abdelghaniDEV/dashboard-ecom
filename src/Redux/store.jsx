@@ -8,6 +8,7 @@ import AnalyticOrdersSlice from "./slices/analyticCategory.jsx"
 import userSingleSlice from "./slices/userSingle.slice.jsx"
 import usersSlice from "./slices/users.slice"
 import settingAllSlice from "./slices/settingAll.slice"
+import templateSlice from "./slices/tamplate.slice.jsx"
 export const store = configureStore({
     reducer : {
         products : productsSlice,
@@ -19,6 +20,7 @@ export const store = configureStore({
         signleUser : userSingleSlice,
         users : usersSlice,
         settingAll : settingAllSlice,
+        template: templateSlice,
 
     }
 })

@@ -37,6 +37,7 @@ import Setting from "./pages/Setting";
 import Store from "./pages/Store";
 import { fetchSetingAll } from "./Redux/slices/settingAll.slice";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { fetchTemplate } from "./Redux/slices/tamplate.slice";
 
 
 const ProtectedRoute = ({ children }) => {
@@ -67,6 +68,7 @@ const App = () => {
     dispatch(fetchAnalyticOrders());
     dispatch(fetchUsers());
     dispatch(fetchSetingAll())
+    dispatch(fetchTemplate())
   }, []);
 
   const settingAll = useSelector((state) => state.settingAll)
@@ -85,7 +87,7 @@ const App = () => {
           path="/dashboard/*"
           element={
             <ProtectedRoute>
-              <div className="flex">
+              <div className="flex h-full">
                 <SideBar
                   setShowSidebar={setShowSidebar}
                   showSidebar={showSidebar}
