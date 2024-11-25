@@ -91,7 +91,7 @@ function ListCustomers({ customers }) {
           {currentOrders.map((customer, index) => {
             const dateCustomer = new Date(customer.createdAt).toDateString();
             return (
-              <TableRow className="xl:text-[15px] text-[15px]">
+              <TableRow className="xl:text-[15px] text-[15px]" key={customer._id}>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell className="">{customer.name}</TableCell>
                 <TableCell className="hidden sm:table-cell">{customer.email}</TableCell>
@@ -104,14 +104,14 @@ function ListCustomers({ customers }) {
                     to={`${customer._id}`}
                     
                   >
-                    <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
+                    <i className="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
                     <span className="hidden md:block bg-[#b58df2] text-white rounded-[8px] p-2 text-center ">
                       Views
                     </span>
                   </Link>
                   <Dialog>
                     <DialogTrigger >
-                    <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
+                    <i className="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
                         <span className=" bg-[#FDD8E0] hidden md:block text-[#F4164F] md:rounded-[8px]  p-2 text-center">
                           
                           Delete
@@ -149,7 +149,7 @@ function ListCustomers({ customers }) {
           {/* Add more customers here */}
         </TableBody>
       </Table>
-      <div>
+      {pageCount > 1 && <div>
         <ReactPaginate
           previousLabel={"Prev"}
           nextLabel={"Next"}
@@ -158,7 +158,9 @@ function ListCustomers({ customers }) {
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
-          containerClassName={"flex justify-center md:justify-end items-center mt-4 space-x-2 "}
+          containerClassName={
+            "flex justify-center md:justify-end items-center mt-4 space-x-2 "
+          }
           pageClassName={
             "px-3 py-1 border rounded hover:bg-[#b58df2] hover:text-white"
           }
@@ -168,7 +170,7 @@ function ListCustomers({ customers }) {
           activeClassName={"bg-[#b58df2] text-white"}
           disabledClassName={"opacity-50 cursor-not-allowed"}
         />
-      </div>
+      </div>} 
     </div>
   );
 }

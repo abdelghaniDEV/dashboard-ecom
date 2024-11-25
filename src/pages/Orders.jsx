@@ -3,24 +3,34 @@ import { useSelector } from "react-redux";
 import DatePickerDemo from "../componnents/DatePickerDemo";
 import ListOrders from "../componnents/order/ListOrders";
 import { Link } from "react-router-dom";
+import { Skeleton } from "../components/ui/skeleton";
 
 function Orders() {
   const orders = useSelector((statu) => statu.orders);
+  const products = useSelector((statu) => statu.products);
   const [rangeDate, setRangeDate] = useState();
   const [status, setStatus] = useState("");
   const [orderFetch, setOrderFetch] = useState([]);
-  // filter orders by status and range date
+  const [Revenue , setRevenue ] = useState()
+    // filter orders by status and range date
+
+  
 
   useEffect(() => {
     setOrderFetch(orders);
+    setRevenue(orders.reduce((total, order) => total + order.totalPrice, 0))
   }, [orders]);
+
+   
 
   useEffect(() => {
     if (rangeDate) {
       filterOrdersByDate(rangeDate.from, rangeDate.to);
+      
     } else {
       setOrderFetch(orders);
     }
+    
   }, [rangeDate]);
 
   // filter orders by date range
@@ -32,6 +42,8 @@ function Orders() {
       return orderDate >= start && orderDate <= end;
     });
     setOrderFetch(orderaFilter);
+    const calculatedRevenue = orderaFilter.reduce((total, order) => total + order.totalPrice, 0);
+    setRevenue(calculatedRevenue);
     console.log("orderfilter", orderaFilter);
   };
 
@@ -59,12 +71,13 @@ function Orders() {
         </div>
       </div>
       <div className="custom-gradient grid grid-cols-1 lg:grid-cols-3 gap-3 mb-3 ">
-        <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] py-6 px-4  shadow-md bg-box-total-products  text-white">
+        {orders.length > 0 ? <>
+          <div className="relative overflow-hidden flex flex-col gap-1 border-[2px] rounded-[20px] py-6 px-4  shadow-md bg-box-total-products  text-white">
           <h3 className="text-[14px]">Total Products</h3>
           <div className="flex gap-[7px]">
             <i className="bx bx-category-alt text-[20px]"></i>
             <i className="bx bx-category-alt text-[150px] absolute top-3 right-[-40px] text-[#5BAE3D]"></i>
-            <h1 className="text-[30px] font-[600]">9.856</h1>
+            <h1 className="text-[30px] font-[600]">{products.length}</h1>
           </div>
           <div className="flex items-center">
             <i className="bx bxs-chevrons-up text-[#8BE78B]"></i>
@@ -81,7 +94,7 @@ function Orders() {
             <span className="text-[180px] absolute top-[-40px] right-0 text-[#A98563]">
               $
             </span>
-            <h1 className="text-[30px] font-[600]">13.456</h1>
+            <h1 className="text-[30px] font-[600]">{Revenue?.toFixed(2)}</h1>
           </div>
           <div className="flex items-center">
             <i className="bx bxs-chevrons-up text-[#8BE78B]"></i>
@@ -96,7 +109,7 @@ function Orders() {
           <div className="flex gap-[7px]">
             <i className="bx bx-shopping-bag text-[20px]"></i>
             <i className="bx bx-shopping-bag text-[150px] absolute top-3 right-[-40px] text-[#F2B78D]"></i>
-            <h1 className="text-[30px] font-[600]">{orders.length}</h1>
+            <h1 className="text-[30px] font-[600]">{orderFetch.length}</h1>
           </div>
           <div className="flex items-center">
             <i className="bx bxs-chevrons-down text-[#821f1f]"></i>
@@ -106,6 +119,11 @@ function Orders() {
             </h3>
           </div>
         </div>
+        </> : <>
+        <Skeleton className={'h-[150px] rounded-[20px]'} />
+        <Skeleton className={'h-[150px] rounded-[20px]'} />
+        <Skeleton className={'h-[150px] rounded-[20px]'} />
+        </>}
       </div>
       <DatePickerDemo setRangeDate={setRangeDate} />
       <ListOrders orders={orderFetch} />

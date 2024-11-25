@@ -172,7 +172,7 @@ function CreateOrder() {
         setZipCode('')
 
         dispatch(fetchOrders());
-        setStatusSubmit("success");
+        
       } catch (err) {
         console.error(err);
         notify("error", err.response.data.message);

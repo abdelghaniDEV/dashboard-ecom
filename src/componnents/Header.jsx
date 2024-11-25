@@ -1,6 +1,7 @@
 import React from "react";
 import User from "./User";
 import { useSelector } from "react-redux";
+import { Skeleton } from "../components/ui/skeleton";
 
 
 function Header({setShowSidebar , showSidebar}) {
@@ -11,11 +12,14 @@ function Header({setShowSidebar , showSidebar}) {
       <div className="flex gap-5 items-center ">
         <div className="flex gap-3 items-center">
           <i className="bx bx-menu-alt-left text-[35px] lg:hidden" onClick={() => setShowSidebar(!showSidebar)}></i>
-          <div className="hidden lg:block">
+          <div className="hidden lg:block md:flex gap-2 items-center">
             <span className="text-[#aba9a9]">Welcome</span>
-            <h1 className="text-[30px] font-semibold leading-[20px]"> Mr <span className="bg-[#] text-[#e4823c]  rounded-[30px]">{user.firstName} {user.lastName}</span></h1>
+            {user ? <h1 className="text-[30px] font-semibold leading-[20px]"> Mr <span className="bg-[#] text-[#e4823c]  rounded-[30px]">{user.firstName} {user.lastName}</span></h1> :
+             <Skeleton className={'h-4 w-[350px]'} />
+            }
+            
           </div>
-         
+          
         </div>
       </div>
       {/* admin and icons */}

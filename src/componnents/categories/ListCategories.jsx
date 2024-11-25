@@ -26,8 +26,9 @@ import { fetchCategories } from "../../Redux/slices/categories.slice";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { closestIndexTo } from "date-fns";
 
-function ListCategories({ setOpacityBody }) {
+function ListCategories({ }) {
   const products = useSelector((state) => state.products);
   const categories = useSelector((state) => state.categories);
   const [showDelet, setShowDelet] = useState(false);
@@ -46,11 +47,11 @@ function ListCategories({ setOpacityBody }) {
 
 
   const dispatch = useDispatch();
-  if (showDelet === true) {
-    setOpacityBody(true);
-  } else {
-    setOpacityBody(false);
-  }
+  // if (showDelet === true) {
+  //   setOpacityBody(true);
+  // } else {
+  //   setOpacityBody(false);
+  // }
 
   const handleDeleteCategory = async (categoryId) => {
     // Call your API to delete the category
@@ -97,9 +98,10 @@ function ListCategories({ setOpacityBody }) {
                       .filter(
                         (product) => product.category[0] === category.name
                       )
-                      .map((item) => {
+                      .map((item , index) => {
                         return (
                           <img
+                            key={index}
                             src={item.image[0]}
                             className="w-10 h-10 rounded-full"
                           />
@@ -119,20 +121,20 @@ function ListCategories({ setOpacityBody }) {
                 <TableCell className="">
                   <div className="text-center grid grid-cols-3 sm:gap-2 text-[13px]">
                     <Link className="">
-                      <i class="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
+                      <i className="bx bx-show bg-[#b58df2] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
                       <span className="hidden md:block bg-[#b58df2] text-white rounded-[8px] p-2 text-center ">
                         Views
                       </span>
                     </Link>
                     <Link to={`${category._id}`}>
-                      <i class="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
+                      <i className="bx bx-edit-alt bg-[#76a963] md:hidden text-white rounded-[8px] p-[10px] text-center"></i>
                       <span className="hidden md:block bg-[#76a963] text-white rounded-[8px] p-2 text-center">
                         Edit
                       </span>
                     </Link>
                     <Dialog>
                       <DialogTrigger className="">
-                        <i class="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
+                        <i className="bx bx-trash-alt md:hidden bg-[#FDD8E0] text-[#F4164F] rounded-[8px] p-[10px] text-center"></i>
                         <span className=" bg-[#FDD8E0] hidden md:block text-[#F4164F]  rounded-[8px]  p-2 text-center">
 
                           Delete
@@ -151,15 +153,15 @@ function ListCategories({ setOpacityBody }) {
                         </div>
                         <DialogFooter className="sm:justify-start">
                           <DialogClose className="flex gap-4">
-                            <Button type="button" variant="secondary">
+                            <span type="button" variant="secondary" className="p-2 bg-secondary rounded-[8px]">
                               Close
-                            </Button>
-                            <Button
+                            </span>
+                            <span 
                               onClick={() => handleDeleteCategory(category._id)}
-                              className="bg-[#FDD8E0] text-[#F4164F] rounded-[8px] text-center hover:bg-[#FDD8E0]"
+                              className="bg-[#FDD8E0] p-2 text-[#F4164F] rounded-[8px] text-center hover:bg-[#FDD8E0]"
                             >
                               Delete
-                            </Button>
+                            </span>
                           </DialogClose>
                         </DialogFooter>
                       </DialogContent>

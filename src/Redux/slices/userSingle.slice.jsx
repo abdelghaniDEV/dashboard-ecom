@@ -21,7 +21,7 @@ export const fetchSingleUser = createAsyncThunk("userSingleSlice/fetchSingleUser
 })
 
 const userSingleSlice = createSlice({
-    initialState : [],
+    initialState : false,
     name : "userSingleSlice",
     reducers : {},
     extraReducers : (builder) => {

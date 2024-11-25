@@ -11,7 +11,8 @@ export default {
   			'custom-gradient': 'linear-gradient(-14deg, #FFFFFF 0%, #F5CAAB 100%)',
   			'box-total-products': 'linear-gradient(-40deg, #ffffff 0%, #5bae3d 100%)',
   			'box-total-revenue': 'linear-gradient(135deg, #a98563 0%, #ffffff 100%);',
-  			'box-total-orders': ' linear-gradient(135deg, #f2b78d 0%, #ffffff 100%);'
+  			'box-total-orders': ' linear-gradient(135deg, #f2b78d 0%, #ffffff 100%);',
+			'box-total-customer': ' linear-gradient(135deg, #c9abf5 0%, #ffffff 100%);'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -32,11 +32,6 @@ function ListProducts({ products, setOpacityBody }) {
 
 
 
-  if (showDeletProduct === true) {
-    setOpacityBody(true);
-  } else {
-    setOpacityBody(false);
-  }
 
   return (
     <div>

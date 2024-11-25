@@ -16,7 +16,7 @@ function Categories({setOpacityBody}) {
         </div>
         <div className="flex justify-end gap-3">
           <div className="bg-[#F5CAAB] p-2 lg:py-[6px]  rounded-[20px] flex items-center gap-1">
-            <i class="bx bx-plus md:text-[20px]"></i>
+            <i className="bx bx-plus md:text-[20px]"></i>
             <Link to={'create-category'} className="text-[13px] font-[500]"> Category</Link>
           </div>
         </div>

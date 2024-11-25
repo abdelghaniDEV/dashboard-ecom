@@ -134,6 +134,7 @@ const App = () => {
                         path="orders/views/:orderID"
                         element={<OrderDetails />}
                       />
+                      
                       <Route path="customers" element={<Customers />} />
                       <Route
                         path="customers/:customerID"

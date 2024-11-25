@@ -114,15 +114,15 @@ function ProductCart({ product, index }) {
               </div>
               <DialogFooter className="sm:justify-start">
                 <DialogClose className="flex gap-4">
-                  <Button type="button" variant="secondary">
+                  <span  className="px-4 py-2 text-sm font-[500] rounded-[8px] bg-secondary">
                     Close
-                  </Button>
-                  <Button
+                  </span>
+                  <span
                     onClick={() => handleDeleteProduct(product._id)}
-                    className="bg-[#FDD8E0] text-[#F4164F] rounded-[8px] text-center hover:bg-[#FDD8E0]"
+                    className="bg-[#FDD8E0] px-4 py-2 text-sm font-[500] text-[#F4164F] rounded-[8px] text-center hover:bg-[#FDD8E0]"
                   >
                     Delete
-                  </Button>
+                  </span>
                 </DialogClose>
               </DialogFooter>
             </DialogContent>

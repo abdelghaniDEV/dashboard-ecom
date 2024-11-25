@@ -10,7 +10,7 @@ export const fetchSetingAll = createAsyncThunk("settingAllSlice/fetchSetingAll",
                 Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
               },
         });
-        
+            
         return response.data; // Return the data directly
       } catch (error) {
         console.error("Error fetching categories:", error);

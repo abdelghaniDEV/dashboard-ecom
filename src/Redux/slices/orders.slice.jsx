@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 const token = localStorage.getItem("token")
+console.log(import.meta.env.VITE_API_KEY)
 
 export const fetchOrders = createAsyncThunk("ordersSlice/fetchOrders", async () => {
 

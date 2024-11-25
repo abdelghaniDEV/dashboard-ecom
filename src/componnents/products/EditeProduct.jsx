@@ -228,7 +228,7 @@ const EditProduct = () => {
             to={"/dashboard/products"}
             className="border p-2 md:p-3  "
           >
-            <i class="bx bx-arrow-back"></i>
+            <i className="bx bx-arrow-back"></i>
           </Link>
           <div className=" items-center gap-2 mt-[-5px] lg:mt-0 ">
             {/* <i class="bx bx-edit text-[30px] lg:hidden text-[#bc6c33]"></i> */}
@@ -245,7 +245,7 @@ const EditProduct = () => {
             className="bg-[#F5CAAB] p-2 lg:p-3  rounded-[20px] flex items-center gap-1 cursor-pointer"
             onClick={handleUpload}
           >
-            <i class="bx bx-check text-[20px]"></i>
+            <i className="bx bx-check text-[20px]"></i>
             <span className="text-[13px] font-[500]">Save Product</span>
           </div>
         </div>
@@ -262,7 +262,7 @@ const EditProduct = () => {
               </label>
               <input
                 type="text"
-                value={productName}
+                value={productName || ""}
                 onChange={(e) => setProductName(e.target.value)}
                 className="w-full border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px] "
                 placeholder="Name of product"
@@ -319,7 +319,7 @@ const EditProduct = () => {
                 <div className="flex">
                   <input
                     type="text"
-                    value={newSize}
+                    value={newSize || ""}
                     onChange={(e) => setNewSize(e.target.value)}
                     className="border bg-[#EEEEEE] text-[15px] rounded-[5px] outline-none pl-[16px] "
                     placeholder="Add size"
@@ -360,7 +360,7 @@ const EditProduct = () => {
                   <div className=" flex items-center gap-4">
                     <input
                       type="color"
-                      value={newColor}
+                      value={newColor || ""}
                       onChange={(e) => setNewColor(e.target.value)} // تحديث اللون المختار
                       className="w-10 h-10 border-none rounded-[8px]"
                     />
@@ -386,7 +386,7 @@ const EditProduct = () => {
                 </label>
                 <input
                   type="number"
-                  value={productPrice}
+                  value={productPrice || 0}
                   onChange={(e) => setProductPrice(e.target.value)}
                   className="w-full border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px]"
                   placeholder="price"
@@ -400,7 +400,7 @@ const EditProduct = () => {
                 </label>
                 <input
                   type="number"
-                  value={productStock}
+                  value={productStock || ""}
                   onChange={(e) => setProductStock(e.target.value)}
                   className="w-full border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px] "
                   placeholder="stock"
@@ -413,7 +413,7 @@ const EditProduct = () => {
                 </label>
                 <input
                   type="number"
-                  value={priceDiscount}
+                  value={priceDiscount || 0}
                   onChange={(e) => setPriceDiscount(e.target.value)}
                   className="w-full border h-10 text-[15px] bg-[#EEEEEE] rounded-[5px] outline-none pl-[16px]"
                   placeholder="price"
@@ -432,31 +432,17 @@ const EditProduct = () => {
           <div className="bg-[#F9F9F9] p-5 rounded-[10px]">
             <h1 className=" text-[20px] font-[600] mb-3">upload images</h1>
             <label
-              for="dropzone-file"
+              htmlFor="dropzone-file"
               id="input-image"
-              class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-[#EEEEEE] dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+              className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-[#EEEEEE] dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
             >
-              <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                <svg
-                  class="w-8 h-8 mb-4 text-[#F5CAAB] dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 16"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                  />
-                </svg>
-                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                  <span class="font-semibold">Click to upload</span> or drag and
+              <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                <i className='bx bx-cloud-upload text-[#F5CAAB] text-[40px]'></i>
+                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                  <span className="font-semibold">Click to upload</span> or drag and
                   drop
                 </p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500 dark:text-gray-400">
                   SVG, PNG, JPG or GIF (MAX. 800x400px)
                 </p>
               </div>
@@ -464,7 +450,7 @@ const EditProduct = () => {
                 id="dropzone-file"
                 type="file"
                 multiple
-                class="hidden"
+                className="hidden"
                 onChange={handleFileChange}
               />
             </label>
