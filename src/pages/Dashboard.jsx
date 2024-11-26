@@ -73,7 +73,7 @@ function Dashboard() {
     <div>
       <div>
         <div className="flex justify-between pb-4 items-center">
-          <h2 className="text-[30px] lg:text-[30px] font-[600] leading-4 ">
+          <h2 className="text-[25px] font-[500] lg:text-[30px] md:font-[600] leading-[25px] md:leading-4 ">
             Overview Perfomance
           </h2>
           <DatePickerDemo setRangeDate={setRangeDate} />

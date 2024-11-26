@@ -25,7 +25,7 @@ function DatePickerDemo({setRangeDate}) {
             id="date"
             variant={"outline"}
             className={cn(
-              "w-[230px] justify-start text-left font-normal",
+              "w-[200px] justify-start text-left font-normal",
               !date && "text-muted-foreground"
             )}
           >
