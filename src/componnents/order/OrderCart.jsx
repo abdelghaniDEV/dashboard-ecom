@@ -92,7 +92,7 @@ function OrderCart({ order }) {
                 Views
               </span>
             </DialogTrigger>
-            <DialogContent className="md:p-3 p-1">
+            <DialogContent className="md:p-3 p-1 w-[500px]">
               <DialogHeader>
                 <DialogTitle className="flex flex-col">
                   <span className="md:text-[25px] text-[18px] mb-1 md:mb-2 ">

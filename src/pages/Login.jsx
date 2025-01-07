@@ -17,16 +17,18 @@ const Login = () => {
   const dispatch = useDispatch()
   const [statusSubmit, setStatusSubmit] = useState("");
 
+  console.log(import.meta.env.VITE_API_URL)
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       setStatusSubmit("loading");
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/users/login`,
+        `http://localhost:4000/api/users/login`,
         { email, password },{
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-          },
+          // headers: {
+          //   Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+          // },
         }
       );
       const token = response.data.data.token;

@@ -118,7 +118,7 @@ function Dashboard() {
           <div className="flex justify-between">
             <div className="flex gap-2 items-center text-[28px]">
             <i className='bx bxs-shopping-bag text-[#f2b78d]'></i>
-              <h1 className="text-[20px] md:text-[28px] font-[600]">New Order</h1>
+              <h1 className="text-[18px] md:text-[28px] font-[500] md:font-[600]">New Order</h1>
             </div>
 
             <Button className="flex items-center gap-3  bg-box-total-orders text-black">
@@ -132,7 +132,7 @@ function Dashboard() {
           <div className="flex justify-between py-4">
           <div className="flex gap-2 items-center text-[28px]">
               <i className="bx bxs-user text-[#c9abf5]"></i>
-              <h1 className="text-[20px] md:text-[28px] font-[600]">Best Customers</h1>
+              <h1 className="text-[18px] md:text-[28px] font-[500] md:font-[600]">Best Customers</h1>
             </div>
             
             <Button className="flex items-center gap-3  bg-box-total-customer text-black">
